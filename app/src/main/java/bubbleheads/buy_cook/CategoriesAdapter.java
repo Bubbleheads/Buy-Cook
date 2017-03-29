@@ -19,7 +19,7 @@ import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.MyViewHolder>{
     private CategoriesFragment categoriesFragment;
-    private ArrayList<Category> categoriesList;
+    private ArrayList<Category> categoriesList = new ArrayList<>();
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView text;
@@ -45,7 +45,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.categories_fragment, parent, false);
+                .inflate(R.layout.categories_cell, parent, false);
 
         return new MyViewHolder(itemView);
     }

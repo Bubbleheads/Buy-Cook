@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Recipe {
-    private String recipeName;
-    private String recipeDetail;
-    private int recipePhoto;
-    private boolean favorite = false;
+    private final String recipeName;
+    private final String recipeDetail;
+    private final int recipePhoto;
+    private boolean favorite;
+    private final Category category;
 
-    public Recipe(String name, String detail, int photo){
+    public Recipe(String name, String detail, int photo, Category category){
         this.recipeName = name;
         this.recipeDetail = detail;
         this.recipePhoto = photo;
+        this.category = category;
     }
 
     public String getRecipeName(){
@@ -29,6 +31,10 @@ public class Recipe {
 
     public boolean getFavorite(){
         return this.favorite;
+    }
+
+    public Category getCategory(){
+        return this.category;
     }
 
     public void changeFavorite(){

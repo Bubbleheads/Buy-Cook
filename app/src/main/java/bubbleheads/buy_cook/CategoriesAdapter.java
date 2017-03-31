@@ -13,10 +13,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by melod on 29.03.2017.
- */
-
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.MyViewHolder>{
     private CategoriesFragment categoriesFragment;
     private ArrayList<Category> categoriesList = new ArrayList<>();

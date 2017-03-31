@@ -12,9 +12,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/**
- * Created by melod on 26.03.2017.
- */
 public class RecipesBookFragment extends Fragment {
     private GridView collectionView;
     private ArrayList<Recipe> recipes;

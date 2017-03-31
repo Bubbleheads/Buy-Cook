@@ -2,11 +2,6 @@ package bubbleheads.buy_cook;
 
 import java.util.ArrayList;
 
-
-/**
- * Created by melod on 22.03.2017.
- */
-
 public class RecipeList {
 
     private ArrayList<Recipe> recipes = new ArrayList<>();

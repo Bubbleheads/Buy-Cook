@@ -4,13 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-/**
- * Created by melod on 26.03.2017.
- */
-
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
-    int mNumOfTabs;
+    private int mNumOfTabs;
+
 
     public PagerAdapter(FragmentManager fragmentManager, int NumOfTabs) {
         super(fragmentManager);
@@ -19,14 +16,17 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+
+        final int COLLECTION_SCREEN = 0;
+        final int FAVOURITE_RECIPES = 1;
+        final int CHOSEN_RECIPES = 2;
+
         switch (position) {
-            case 0:
+            case COLLECTION_SCREEN:
                 return new CategoriesFragment();
-            case 1:
+            case FAVOURITE_RECIPES:
                 return new Fragment();
-            case 2:
-                return new Fragment();
-            case 3:
+            case CHOSEN_RECIPES:
                 return new Fragment();
             default:
                 return new Fragment();

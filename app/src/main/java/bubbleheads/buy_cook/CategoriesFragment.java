@@ -11,10 +11,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by melod on 29.03.2017.
- */
-
 public class CategoriesFragment extends Fragment {
     private ArrayList<Category> categoryArrayList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -27,8 +23,6 @@ public class CategoriesFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
         return view;
-
-
     }
 
     @Override
@@ -39,14 +33,11 @@ public class CategoriesFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
-
     }
-
 
 
     private void prepareCategoriesData() {
 
 
-
-}
+    }
 }

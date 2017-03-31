@@ -13,10 +13,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by melod on 26.03.2017.
- */
-
 public class RecipesBookAdapter extends BaseAdapter implements Filterable {
     private Context context;
     private ArrayList<Recipe> recipes;

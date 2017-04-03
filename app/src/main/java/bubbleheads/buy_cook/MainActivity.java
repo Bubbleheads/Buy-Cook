@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         return this.recipeList.getRecipes();
     }
 
-    public void showFragment(Fragment fragment) {
+    public final void showFragment(Fragment fragment) {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);

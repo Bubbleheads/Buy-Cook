@@ -6,12 +6,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
-    private int mNumOfTabs;
+    private int numOfTabs;
 
 
-    public PagerAdapter(FragmentManager fragmentManager, int NumOfTabs) {
+    public PagerAdapter(FragmentManager fragmentManager, int numOfTabs) {
         super(fragmentManager);
-        this.mNumOfTabs = NumOfTabs;
+        this.numOfTabs = numOfTabs;
     }
 
     @Override
@@ -29,13 +29,13 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case CHOSEN_RECIPES:
                 return new Fragment();
             default:
-                return new Fragment();
+                throw new NullPointerException("No tab is selected.");
         }
     }
 
     @Override
     public int getCount() {
-        return mNumOfTabs;
+        return numOfTabs;
     }
 }
 

@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TabLayoutFragment extends Fragment {
+public final class TabLayoutFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -16,13 +16,23 @@ public class TabLayoutFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_layout_fragment, container, false);
 
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        final TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        setUpTabs(tabLayout);
+
+        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.screen);
+        setUpViewPager(viewPager, tabLayout);
+
+        return view;
+    }
+
+    private void setUpTabs(final TabLayout tabLayout){
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_book_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_favorite_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_content_paste_black_24dp));
+    }
 
-        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.screen);
-        PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(), tabLayout.getTabCount());
+    private void setUpViewPager(final ViewPager viewPager, final TabLayout tabLayout){
+        final PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -41,7 +51,5 @@ public class TabLayoutFragment extends Fragment {
 
             }
         });
-
-        return view;
     }
 }

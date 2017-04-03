@@ -1,6 +1,5 @@
 package bubbleheads.buy_cook;
 
-import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -9,49 +8,44 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Adapter;
+import android.support.v7.widget.RecyclerView.Adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriesAdapter extends BaseAdapter {
-    private CategoriesFragment categoriesFragment;
-    private Context context;
-    private ArrayList<Category> categoriesList = new ArrayList<>();
+public class CategoriesAdapter extends Adapter<CategoriesAdapter.MyViewHolder> {
+    private final CategoriesFragment categoriesFragment;
 
-    public CategoriesAdapter( Context context,CategoriesFragment categoriesFragment) {
-        for (Category category: Category.values()){
-            categoriesList.add(category);
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView text;
+        public View itemView;
+
+        private MyViewHolder(final View view) {
+            super(view);
+            itemView = view;
+            text = (TextView) view.findViewById(R.id.text);
         }
+    }
+
+    public CategoriesAdapter(final CategoriesFragment categoriesFragment) {
         this.categoriesFragment = categoriesFragment;
-        this.context = context;
-    }
-
-    public View getView(int position, View convertView, ViewGroup parent) {
-        final LayoutInflater layoutInflater = LayoutInflater.from(context);
-        convertView = layoutInflater.inflate(R.layout.categories_cell, null);
-        TextView categoriesName = (TextView) convertView.findViewById(R.id.categories_name);
-        return convertView;
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    public MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+       final View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.categories_cell, parent, false);
+        return new MyViewHolder(itemView);
     }
 
     @Override
-    public Object getItem(int position) {
-        return categoriesList.get(position);
+    public void onBindViewHolder(MyViewHolder holder, int position) {
+        holder.text.setText((Category.values())[position].getName());
     }
 
     @Override
-    public int getCount() {
-        return categoriesList.size();
-    }
-
-    @Override
-    public boolean isEmpty(){
-        return categoriesList.isEmpty();
+    public int getItemCount() {
+        return Category.values().length;
     }
 }

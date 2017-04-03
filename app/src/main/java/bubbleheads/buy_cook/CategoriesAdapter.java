@@ -9,50 +9,43 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
+import android.support.v7.widget.RecyclerView.Adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.MyViewHolder>{
-    private CategoriesFragment categoriesFragment;
-    private ArrayList<Category> categoriesList = new ArrayList<>();
+public class CategoriesAdapter extends Adapter<CategoriesAdapter.MyViewHolder> {
+    private final CategoriesFragment categoriesFragment;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+
         public TextView text;
-
         public View itemView;
 
-
-        public MyViewHolder(View view) {
+        private MyViewHolder(final View view) {
             super(view);
             itemView = view;
             text = (TextView) view.findViewById(R.id.text);
-
         }
     }
 
-    public CategoriesAdapter( CategoriesFragment categoriesFragment) {
-        for (Category category: Category.values()){
-            categoriesList.add(category);
-        }
+    public CategoriesAdapter(final CategoriesFragment categoriesFragment) {
         this.categoriesFragment = categoriesFragment;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
+    public MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+       final View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.categories_cell, parent, false);
-
         return new MyViewHolder(itemView);
     }
 
-
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.text.setText(categoriesList.get(position).getName());
+        holder.text.setText((Category.values())[position].getName());
     }
-     @Override
-        public int getItemCount() {
-        return categoriesList.size();
+
+    @Override
+    public int getItemCount() {
+        return Category.values().length;
     }
 }

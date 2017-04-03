@@ -7,8 +7,9 @@ public class Recipe {
     private final String recipeName;
     private final String recipeDetail;
     private final int recipePhoto;
-    private boolean favorite;
     private final Category category;
+
+    private boolean favorite;
 
     public Recipe(final String name,final String detail,final int photo,final Category category) {
         this.recipeName = name;
@@ -18,23 +19,23 @@ public class Recipe {
     }
 
     public String getRecipeName() {
-        return this.recipeName;
+        return recipeName;
     }
 
     public String getRecipeDetail() {
-        return this.recipeDetail;
+        return recipeDetail;
     }
 
     public int getRecipePhoto() {
-        return this.recipePhoto;
+        return recipePhoto;
     }
 
     public boolean getFavorite() {
-        return this.favorite;
+        return favorite;
     }
 
     public Category getCategory() {
-        return this.category;
+        return category;
     }
 
     public void changeFavorite() {

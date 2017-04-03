@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 public final class TabLayoutFragment extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_layout_fragment, container, false);
+    public View onCreateView(final LayoutInflater inflater,
+                             final ViewGroup container,
+                             final Bundle savedInstanceState) {
+        final View view = inflater.inflate(R.layout.tab_layout_fragment, container, false);
 
         final TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
         setUpTabs(tabLayout);

@@ -29,7 +29,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case CHOSEN_RECIPES:
                 return new Fragment();
             default:
-                throw new NullPointerException("No tab is selected.");
+                throw new RuntimeException("No tab is selected.");
         }
     }
 

@@ -1,8 +1,5 @@
 package bubbleheads.buy_cook;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +15,8 @@ public class CategoriesAdapter extends Adapter<CategoriesAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView text;
-        public View itemView;
+        public final TextView text;
+        public final View itemView;
 
         private MyViewHolder(final View view) {
             super(view);

@@ -1,14 +1,20 @@
 package bubbleheads.buy_cook;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.support.v7.widget.RecyclerView.Adapter;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.google.android.gms.internal.zzs.TAG;
 
 public class CategoriesAdapter extends Adapter<CategoriesAdapter.MyViewHolder> {
     private final CategoriesFragment categoriesFragment;
@@ -38,7 +44,8 @@ public class CategoriesAdapter extends Adapter<CategoriesAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.text.setText((Category.values())[position].getName());
+        TextView categoryName = (TextView) holder.itemView.findViewById(R.id.categories_name);
+        categoryName.setText(Category.values()[position].getName());
     }
 
     @Override

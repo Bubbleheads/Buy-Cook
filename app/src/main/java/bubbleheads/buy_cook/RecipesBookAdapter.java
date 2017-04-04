@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipesBookAdapter extends BaseAdapter implements Filterable {
+public final class RecipesBookAdapter extends BaseAdapter implements Filterable {
     private Context context;
     private ArrayList<Recipe> recipes;
     private ArrayList<Recipe> backupRecipes;

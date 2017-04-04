@@ -6,16 +6,15 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
-    private int numOfTabs;
+    private final int numOfTabs;
 
-
-    public PagerAdapter(FragmentManager fragmentManager, int numOfTabs) {
+    public PagerAdapter(final FragmentManager fragmentManager,final int numOfTabs) {
         super(fragmentManager);
         this.numOfTabs = numOfTabs;
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(final int position) {
 
         final int COLLECTION_SCREEN = 0;
         final int FAVOURITE_RECIPES = 1;

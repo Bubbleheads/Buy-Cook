@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class RecipeList {
 
-    private ArrayList<Recipe> recipes = new ArrayList<>();
+    private final ArrayList<Recipe> recipes = new ArrayList<>();
 
     public RecipeList(){
         recipes.add(new Recipe("Cocoa cocktail", "milk,cocoa,water", R.drawable.cocoacocktail, Category.DRINKS));
@@ -16,7 +16,7 @@ public class RecipeList {
     }
 
     public ArrayList<Recipe> getRecipes(){
-        return this.recipes;
+        return recipes;
     }
 
 }

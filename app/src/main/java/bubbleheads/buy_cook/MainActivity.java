@@ -13,23 +13,22 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecipeList recipeList;
+    private final RecipeList recipeList = new RecipeList();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recipeList = new RecipeList();
         showFragment(new TabLayoutFragment());
     }
 
     public ArrayList<Recipe> getRecipesList(){
-        return this.recipeList.getRecipes();
+        return recipeList.getRecipes();
     }
 
     public void showFragment(final Fragment fragment) {
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+        final FragmentManager supportFragmentManager = getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();

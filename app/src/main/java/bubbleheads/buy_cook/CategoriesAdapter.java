@@ -43,8 +43,8 @@ public class CategoriesAdapter extends Adapter<CategoriesAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        TextView categoryName = (TextView) holder.itemView.findViewById(R.id.categories_name);
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+       final TextView categoryName = (TextView) holder.itemView.findViewById(R.id.categories_name);
         categoryName.setText(Category.values()[position].getName());
     }
 

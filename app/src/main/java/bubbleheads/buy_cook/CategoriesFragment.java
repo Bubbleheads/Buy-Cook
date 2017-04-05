@@ -15,7 +15,9 @@ public class CategoriesFragment extends Fragment {
     private RecyclerView recyclerView;
 
     @Override
-    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,final Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater,
+                             final ViewGroup container,
+                             final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.categories_fragment, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         return view;
@@ -24,9 +26,10 @@ public class CategoriesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        final CategoriesAdapter mAdapter = new CategoriesAdapter(this);
-        recyclerView.setLayoutManager(new  LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
+        final CategoriesAdapter adapter = new CategoriesAdapter(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
+                LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }

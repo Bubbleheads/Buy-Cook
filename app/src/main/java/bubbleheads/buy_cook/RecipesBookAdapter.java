@@ -1,6 +1,7 @@
 package bubbleheads.buy_cook;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
     private final ArrayList<Recipe> backupRecipes;
     private RecipesBookAdapter.ValueFilter valueFilter;
 
-    public RecipesBookAdapter(final Context context,final ArrayList<Recipe> recipes) {
+    public RecipesBookAdapter(final Context context, final ArrayList<Recipe> recipes) {
         this.context = context;
         this.recipes = recipes;
         this.backupRecipes = recipes;
@@ -40,10 +41,9 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
         return recipes.size();
     }
 
-    public View getView(final int position, View convertView,final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         final LayoutInflater layoutInflater = LayoutInflater.from(context);
         convertView = layoutInflater.inflate(R.layout.grid_view_cell, null);
-
         final ImageView recipePhoto = (ImageView) convertView.findViewById(R.id.grid_image);
         final TextView recipeName = (TextView) convertView.findViewById(R.id.grid_name);
         final TextView recipeDetail = (TextView) convertView.findViewById(R.id.grid_detail);
@@ -53,7 +53,7 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
         return convertView;
     }
 
-    public ArrayList<Recipe> getRecipes(){
+    public ArrayList<Recipe> getRecipes() {
         return recipes;
     }
 
@@ -70,8 +70,8 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
         @Override
         protected FilterResults performFiltering(final CharSequence constraint) {
             FilterResults results = new FilterResults();
-            if (!constraint.toString().isEmpty()){
-                List<Recipe> search = searchRecipeName(constraint, recipes);
+            if (TextUtils.isEmpty(constraint)) {
+                final List<Recipe> search = searchRecipeName(constraint, recipes);
                 results.count = search.size();
                 results.values = search;
             } else {
@@ -81,22 +81,22 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
             return results;
         }
 
-        private List<Recipe> searchRecipeName(final CharSequence name,final ArrayList<Recipe> recipes){
-            List<Recipe> filterList = new ArrayList<>();
-            for (Recipe recipe: recipes) {
-                if (checkNames(name.toString(), recipe.getRecipeName())){
+        private List<Recipe> searchRecipeName(final CharSequence name, final ArrayList<Recipe> recipes) {
+            final List<Recipe> filterList = new ArrayList<>();
+            for (final Recipe recipe : recipes) {
+                if (checkNames(name.toString(), recipe.getRecipeName())) {
                     filterList.add(recipe);
                 }
             }
             return filterList;
         }
 
-        private boolean checkNames(final String toFindName,final String recipeName){
+        private boolean checkNames(final String toFindName, final String recipeName) {
             return recipeName.toUpperCase().contains(toFindName.toUpperCase());
         }
 
         @Override
-        protected void publishResults(final CharSequence constraint,final FilterResults results) {
+        protected void publishResults(final CharSequence constraint, final FilterResults results) {
             recipes = (ArrayList) results.values;
             notifyDataSetChanged();
         }

@@ -15,17 +15,14 @@ public final class TabLayoutFragment extends Fragment {
                              final ViewGroup container,
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.tab_layout_fragment, container, false);
-
         final TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
         setUpTabs(tabLayout);
-
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.screen);
         setUpViewPager(viewPager, tabLayout);
-
         return view;
     }
 
-    private void setUpTabs(final TabLayout tabLayout){
+    private  void setUpTabs(final TabLayout tabLayout){
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_book_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_favorite_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_content_paste_black_24dp));
@@ -43,12 +40,10 @@ public final class TabLayoutFragment extends Fragment {
 
             @Override
             public void onTabUnselected(final TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(final TabLayout.Tab tab) {
-
             }
         });
     }

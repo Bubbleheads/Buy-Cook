@@ -23,12 +23,9 @@ public class RecipesBookFragment extends Fragment {
                              final ViewGroup container,
                              final Bundle savedInstanceState){
         final View view = inflater.inflate(R.layout.grid_view_fragment, container, false);
-
         recipes = ((MainActivity) getActivity()).getRecipesList();
-
         setUpCollection(view);
         setUpSearching(view);
-
         return view;
     }
 

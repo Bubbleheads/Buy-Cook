@@ -18,5 +18,4 @@ public class RecipeList {
     public ArrayList<Recipe> getRecipes(){
         return recipes;
     }
-
 }

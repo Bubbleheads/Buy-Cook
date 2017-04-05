@@ -35,7 +35,8 @@ public class RecipesBookFragment extends Fragment {
         collectionView.setAdapter(recipesBookAdapter);
         collectionView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView,final View view,final int position,final long l) {
+            public void onItemClick(final AdapterView<?> adapterView, final View view,
+                                    final int position, final long l) {
                 Toast.makeText(view.getContext(),
                         recipesBookAdapter.getRecipes().get(position).getRecipeName(),
                         Toast.LENGTH_SHORT).show();

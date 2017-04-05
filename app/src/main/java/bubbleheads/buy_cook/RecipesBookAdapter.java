@@ -41,7 +41,7 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
         return recipes.size();
     }
 
-    public View getView(final int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position,final View convertView, final ViewGroup parent) {
         final LayoutInflater layoutInflater = LayoutInflater.from(context);
         convertView = layoutInflater.inflate(R.layout.grid_view_cell, null);
         final ImageView recipePhoto = (ImageView) convertView.findViewById(R.id.grid_image);

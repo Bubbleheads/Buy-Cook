@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         showFragment(new TabLayoutFragment());
     }
 
-    public ArrayList<Recipe> getRecipesList(){
+    public final ArrayList<Recipe> getRecipesList(){
         return recipeList.getRecipes();
     }
 

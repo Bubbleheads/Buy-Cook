@@ -37,14 +37,14 @@ public class CategoriesAdapter extends Adapter<CategoriesAdapter.MyViewHolder> {
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(final ViewGroup parent,final int viewType) {
         final View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.categories_cell, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final TextView categoryName = (TextView) holder.itemView.findViewById(R.id.categories_name);
         categoryName.setText(Category.values()[position].getName());
     }

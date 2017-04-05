@@ -15,7 +15,7 @@ public class RecipeList {
         recipes.add(new Recipe("Pechenko", "sugar, flour,galaretka", R.drawable.pechenko,Category.COOKIES));
     }
 
-    public ArrayList<Recipe> getRecipes(){
+    public final ArrayList<Recipe> getRecipes(){
         return recipes;
     }
 }

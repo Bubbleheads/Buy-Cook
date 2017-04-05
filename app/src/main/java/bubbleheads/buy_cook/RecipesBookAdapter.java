@@ -53,7 +53,7 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
         return convertView;
     }
 
-    public ArrayList<Recipe> getRecipes() {
+    public final ArrayList<Recipe> getRecipes() {
         return recipes;
     }
 

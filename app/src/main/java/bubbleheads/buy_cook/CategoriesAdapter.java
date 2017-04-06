@@ -21,6 +21,7 @@ import static com.google.android.gms.internal.zzs.TAG;
 
 public class CategoriesAdapter extends Adapter<MyViewHolder> {
     private final CategoriesFragment categoriesFragment;
+    private final CategoryList categoryList = new CategoryList();
 
     protected static class MyViewHolder extends ViewHolder {
 
@@ -48,11 +49,11 @@ public class CategoriesAdapter extends Adapter<MyViewHolder> {
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final TextView categoryName = (TextView) holder.itemView.findViewById(R.id.categories_name);
-        categoryName.setText(Category.values()[position].getName());
+        categoryName.setText(categoryList.getCategoryList().get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return Category.values().length;
+        return categoryList.getCategoryList().size();
     }
 }

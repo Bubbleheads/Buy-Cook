@@ -21,7 +21,7 @@ public class RecipesBookFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container,
-                             final Bundle savedInstanceState){
+                             final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.grid_view_fragment, container, false);
         recipes = ((MainActivity) getActivity()).getRecipesList();
         setUpCollection(view);
@@ -29,7 +29,7 @@ public class RecipesBookFragment extends Fragment {
         return view;
     }
 
-    private void setUpCollection(final View view){
+    private void setUpCollection(final View view) {
         collectionView = (GridView) view.findViewById(R.id.collection_view);
         recipesBookAdapter = new RecipesBookAdapter(getContext(), recipes);
         collectionView.setAdapter(recipesBookAdapter);
@@ -47,7 +47,7 @@ public class RecipesBookFragment extends Fragment {
         });
     }
 
-    private void setUpSearching(final View view){
+    private void setUpSearching(final View view) {
         findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

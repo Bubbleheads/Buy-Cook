@@ -22,13 +22,13 @@ public final class TabLayoutFragment extends Fragment {
         return view;
     }
 
-    private  void setUpTabs(final TabLayout tabLayout){
+    private void setUpTabs(final TabLayout tabLayout) {
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_book_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_favorite_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_content_paste_black_24dp));
     }
 
-    private void setUpViewPager(final ViewPager viewPager, final TabLayout tabLayout){
+    private void setUpViewPager(final ViewPager viewPager, final TabLayout tabLayout) {
         final PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

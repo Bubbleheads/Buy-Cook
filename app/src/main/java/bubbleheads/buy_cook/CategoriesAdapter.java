@@ -9,7 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+
 import bubbleheads.buy_cook.CategoriesAdapter.MyViewHolder;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class CategoriesAdapter extends Adapter<MyViewHolder> {
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(final ViewGroup parent,final int viewType) {
+    public MyViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
         final View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.categories_cell, parent, false);
         return new MyViewHolder(itemView);

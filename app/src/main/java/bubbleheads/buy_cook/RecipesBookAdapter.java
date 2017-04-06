@@ -41,19 +41,18 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
         return recipes.size();
     }
 
-    public View getView(final int position,final View convertView, final ViewGroup parent) {
-        final LayoutInflater layoutInflater = LayoutInflater.from(context);
-        LayoutInflater layoutinflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final ImageView recipePhoto = (ImageView) convertView.findViewById(R.id.grid_image);
-        final TextView recipeName = (TextView) convertView.findViewById(R.id.grid_name);
-        final TextView recipeDetail = (TextView) convertView.findViewById(R.id.grid_detail);
+    public View getView(final int position, final View convertView, final ViewGroup parent) {
+        final View view = convertView == null ? LayoutInflater.from(context).inflate(R.layout.grid_view_cell, null) : convertView;
+        final ImageView recipePhoto = (ImageView) view.findViewById(R.id.grid_image);
+        final TextView recipeName = (TextView) view.findViewById(R.id.grid_name);
+        final TextView recipeDetail = (TextView) view.findViewById(R.id.grid_detail);
         recipeName.setText(recipes.get(position).getRecipeName());
         recipeDetail.setText(recipes.get(position).getRecipeDetail());
         recipePhoto.setImageResource(recipes.get(position).getRecipePhoto());
-        return convertView;
+        return view;
     }
 
-    public final ArrayList<Recipe> getRecipes() {
+    public ArrayList<Recipe> getRecipes() {
         return recipes;
     }
 

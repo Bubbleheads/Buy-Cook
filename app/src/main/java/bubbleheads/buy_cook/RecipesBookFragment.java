@@ -42,6 +42,8 @@ public class RecipesBookFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
                 recipesBookAdapter.getRecipes().get(position).changeFavorite();
                 recipesBookAdapter.notifyDataSetChanged();
+                ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));
+                ((MainActivity) getActivity()).showFragment(new RecipeDetailedFragment());
 
             }
         });

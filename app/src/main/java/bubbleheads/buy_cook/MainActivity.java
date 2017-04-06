@@ -13,17 +13,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final RecipeList recipeList = new RecipeList();
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showFragment(new TabLayoutFragment());
-    }
-
-    public ArrayList<Recipe> getRecipesList() {
-        return recipeList.getRecipes();
     }
 
     public void showFragment(final Fragment fragment) {

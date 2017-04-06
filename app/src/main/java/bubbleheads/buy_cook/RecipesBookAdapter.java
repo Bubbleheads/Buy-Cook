@@ -16,8 +16,8 @@ import java.util.List;
 
 public final class RecipesBookAdapter extends BaseAdapter implements Filterable {
     private final Context context;
-    private ArrayList<Recipe> recipes;
     private final ArrayList<Recipe> backupRecipes;
+    private ArrayList<Recipe> recipes;
     private RecipesBookAdapter.ValueFilter valueFilter;
 
     public RecipesBookAdapter(final Context context, final ArrayList<Recipe> recipes) {
@@ -42,7 +42,8 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
     }
 
     public View getView(final int position, final View convertView, final ViewGroup parent) {
-        final View view = convertView == null ? LayoutInflater.from(context).inflate(R.layout.grid_view_cell, null) : convertView;
+        final View view = convertView == null ? LayoutInflater.from(context)
+                .inflate(R.layout.grid_view_cell, null) : convertView;
         final ImageView recipePhoto = (ImageView) view.findViewById(R.id.grid_image);
         final TextView recipeName = (TextView) view.findViewById(R.id.grid_name);
         final TextView recipeDetail = (TextView) view.findViewById(R.id.grid_detail);

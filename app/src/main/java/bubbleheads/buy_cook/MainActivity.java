@@ -1,11 +1,9 @@
 package bubbleheads.buy_cook;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -27,7 +25,13 @@ public class MainActivity extends AppCompatActivity {
         return recipeList.getRecipes();
     }
 
-    public void setDetailedRecipe(final Recipe recipe){detailedRecipe = recipe;}
+    public void setDetailedRecipe(final Recipe recipe) {
+        detailedRecipe = recipe;
+    }
+
+    public Recipe getChosenRecipe() {
+        return this.detailedRecipe;
+    }
 
     public void showFragment(final Fragment fragment) {
         final FragmentManager supportFragmentManager = getSupportFragmentManager();

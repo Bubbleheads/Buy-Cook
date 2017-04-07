@@ -30,10 +30,10 @@ public class RecipesBookFragment extends Fragment {
         return view;
     }
 
-    private ArrayList<Recipe> filterRecipes(Category category){
+    private ArrayList<Recipe> filterRecipes(Category category) {
         final ArrayList<Recipe> result = new ArrayList<>();
-        for (Recipe recipe : ((MainActivity) getActivity()).getRecipesList()){
-            if (recipe.getCategory().equals(category)){
+        for (Recipe recipe : ((MainActivity) getActivity()).getRecipesList()) {
+            if (recipe.getCategory().equals(category)) {
                 result.add(recipe);
             }
         }

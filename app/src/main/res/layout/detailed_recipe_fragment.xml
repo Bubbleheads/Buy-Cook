@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/how_to_cook"
             android:layout_margin="10dp"
-            android:text="Number of recipe"
+            android:text="Chosen recipes"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
@@ -75,7 +75,7 @@
             android:paddingStart="2dp"
             app:elevation="0dp"
             app:fabSize="mini"
-            app:srcCompat="@drawable/ic_minus_one_black" />
+            app:srcCompat="@drawable/ic_plus_one_black" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton2"
@@ -89,7 +89,7 @@
             android:paddingStart="2dp"
             app:elevation="0dp"
             app:fabSize="mini"
-            app:srcCompat="@drawable/ic_plus_one_black" />
+            app:srcCompat="@drawable/ic_minus_one_black" />
 
     </RelativeLayout>
 </ScrollView>

@@ -17,16 +17,31 @@ public class RecipesBookFragment extends Fragment {
     private ArrayList<Recipe> recipes;
     private SearchView findRecipe;
     private RecipesBookAdapter recipesBookAdapter;
+    private Category chosenCategory = null;
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container,
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.grid_view_fragment, container, false);
-        recipes = ((MainActivity) getActivity()).getRecipesList();
+        recipes = filterRecipes(chosenCategory);
         setUpCollection(view);
         setUpSearching(view);
         return view;
+    }
+
+    private ArrayList<Recipe> filterRecipes(Category category) {
+        final ArrayList<Recipe> result = new ArrayList<>();
+        for (Recipe recipe : ((MainActivity) getActivity()).getRecipesList()) {
+            if (recipe.getCategory().equals(category)) {
+                result.add(recipe);
+            }
+        }
+        return result;
+    }
+
+    public void setChosenCategory(final Category category) {
+        this.chosenCategory = category;
     }
 
     private void setUpCollection(final View view) {

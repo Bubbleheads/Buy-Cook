@@ -18,12 +18,12 @@ public class RecipeList {
             "Take them out when they look puffy, are set around the edges, and dry to the touch.";
 
     public RecipeList() {
-        recipes.add(new Recipe("Cocoa cocktail", "milk,cocoa,water", R.drawable.cocoacocktail, Category.DRINKS, ""));
-        recipes.add(new Recipe("Cookie", "mint", R.drawable.pyrig, Category.COOKIES, ""));
-        recipes.add(new Recipe("Sweets", "berries", R.drawable.kex, Category.COOKIES, ""));
-        recipes.add(new Recipe("Coffee", "chocolade, coffee, sugar", R.drawable.coffee, Category.DRINKS, ""));
-        recipes.add(new Recipe("Something tasty", "sugar,fat", R.drawable.pampukh, Category.LUNCH, ""));
-        recipes.add(new Recipe("Pechenko", "sugar, flour,galaretka", R.drawable.pechenko, Category.COOKIES, ""));
+        recipes.add(new Recipe("Cocoa cocktail", "milk,cocoa,water", R.drawable.cocoacocktail, Category.DRINKS,CocoaCocatail));
+        recipes.add(new Recipe("Cookie", "mint", R.drawable.pyrig, Category.COOKIES,Cookie));
+        recipes.add(new Recipe("Sweets", "berries", R.drawable.kex, Category.COOKIES,Kex));
+        recipes.add(new Recipe("Coffee", "chocolade, coffee, sugar", R.drawable.coffee, Category.DRINKS,Coffee));
+        recipes.add(new Recipe("Something tasty", "sugar,fat", R.drawable.pampukh, Category.LUNCH, TastyFood));
+        recipes.add(new Recipe("Pechenko", "sugar, flour,galaretka", R.drawable.pechenko, Category.COOKIES,Pechenko));
     }
 
     public final ArrayList<Recipe> getRecipes() {

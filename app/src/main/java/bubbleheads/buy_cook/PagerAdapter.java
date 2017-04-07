@@ -4,38 +4,35 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-/**
- * Created by melod on 26.03.2017.
- */
-
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
-    int mNumOfTabs;
+    private static final int COLLECTION_SCREEN = 0;
+    private static final int FAVOURITE_RECIPES = 1;
+    private static final int CHOSEN_RECIPES = 2;
+    private final int numOfTabs;
 
-    public PagerAdapter(FragmentManager fragmentManager, int NumOfTabs) {
+    public PagerAdapter(final FragmentManager fragmentManager, final int numOfTabs) {
         super(fragmentManager);
-        this.mNumOfTabs = NumOfTabs;
+        this.numOfTabs = numOfTabs;
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(final int position) {
         switch (position) {
-            case 0:
+            case COLLECTION_SCREEN:
                 return new CategoriesFragment();
-            case 1:
+            case FAVOURITE_RECIPES:
                 return new Fragment();
-            case 2:
-                return new Fragment();
-            case 3:
+            case CHOSEN_RECIPES:
                 return new Fragment();
             default:
-                return new Fragment();
+                throw new RuntimeException("No tab is selected.");
         }
     }
 
     @Override
     public int getCount() {
-        return mNumOfTabs;
+        return numOfTabs;
     }
 }
 

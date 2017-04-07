@@ -1,62 +1,70 @@
 package bubbleheads.buy_cook;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.support.v7.widget.RecyclerView.Adapter;
+import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.widget.Toast;
+
+import bubbleheads.buy_cook.CategoriesAdapter.MyViewHolder;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by melod on 29.03.2017.
- */
+import static com.google.android.gms.internal.zzs.TAG;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.MyViewHolder>{
-    private CategoriesFragment categoriesFragment;
-    private ArrayList<Category> categoriesList = new ArrayList<>();
+public class CategoriesAdapter extends Adapter<MyViewHolder> {
+    private final CategoriesFragment categoriesFragment;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView text;
+    protected static class MyViewHolder extends ViewHolder {
 
-        public View itemView;
+        private final TextView text;
+        private final View view;
+        private final RecyclerView rv;
 
-
-        public MyViewHolder(View view) {
+        private MyViewHolder(final View view) {
             super(view);
-            itemView = view;
-            text = (TextView) view.findViewById(R.id.text);
-
+            this.view = view;
+            text = (TextView) view.findViewById(R.id.categories_name);
+            rv = (RecyclerView) view.findViewById(R.id.recycler_view);
         }
     }
 
-    public CategoriesAdapter( CategoriesFragment categoriesFragment) {
-        for (Category category: Category.values()){
-            categoriesList.add(category);
-        }
+    public CategoriesAdapter(final CategoriesFragment categoriesFragment) {
         this.categoriesFragment = categoriesFragment;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
+    public MyViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+        final View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.categories_cell, parent, false);
-
         return new MyViewHolder(itemView);
     }
 
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+        final TextView categoryName = (TextView) holder.itemView.findViewById(R.id.categories_name);
+        categoryName.setText(Category.values()[position].getName());
+        categoryName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), Category.values()[position].getName(), Toast.LENGTH_SHORT).show();
+                final RecipesBookFragment fragment = new RecipesBookFragment();
+                fragment.setChosenCategory(Category.values()[position]);
+                ((MainActivity) categoriesFragment.getActivity()).showFragment(fragment);
+            }
+        });
+    }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.text.setText(categoriesList.get(position).getName());
-    }
-     @Override
-        public int getItemCount() {
-        return categoriesList.size();
+    public int getItemCount() {
+        return Category.values().length;
     }
 }

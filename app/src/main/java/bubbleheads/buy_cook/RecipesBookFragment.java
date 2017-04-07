@@ -44,7 +44,6 @@ public class RecipesBookFragment extends Fragment {
                 recipesBookAdapter.notifyDataSetChanged();
                 ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));
                 ((MainActivity) getActivity()).showFragment(new RecipeDetailedFragment());
-
             }
         });
     }

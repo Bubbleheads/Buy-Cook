@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Recipe getChosenRecipe() {
-        return this.detailedRecipe;
+        return detailedRecipe;
     }
 
     public void showFragment(final Fragment fragment) {

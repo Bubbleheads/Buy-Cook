@@ -30,7 +30,7 @@ public class Recipe {
     }
 
     public String getRecipeHowToCook() {
-        return this.recipeHowToCook;
+        return recipeHowToCook;
     }
 
     public boolean getFavorite() {

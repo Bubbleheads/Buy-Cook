@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class RecipesBookFragment extends Fragment {
     private ArrayList<Recipe> recipes;
     private RecipesBookAdapter recipesBookAdapter;
-    private Category chosenCategory = null;
+    private Category chosenCategory;
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
@@ -39,7 +39,7 @@ public class RecipesBookFragment extends Fragment {
     }
 
     public void setChosenCategory(final Category category) {
-        this.chosenCategory = category;
+        this.chosenCategory = chosenCategory;
     }
 
     private void setUpCollection(final View view) {

@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class CategoryList {
 
-    private static final ArrayList<Category> CATEGORY_LIST = new ArrayList<Category>() {
+    private static final ArrayList<Category> CATEGORY_LIST
+            = new ArrayList<Category>() {
         {
             add(new Category("Soups")); //1
             add(new Category("Pizza")); //2
@@ -27,12 +28,11 @@ public class CategoryList {
     }
 
     public Category getCategory(final int categoryID) {
-        Category findCategory = new Category();
         for (Category category : CATEGORY_LIST) {
             if (category.getCategoryID() == categoryID) {
-                findCategory = category;
+                return category;
             }
         }
-        return findCategory;
+        return null;
     }
 }

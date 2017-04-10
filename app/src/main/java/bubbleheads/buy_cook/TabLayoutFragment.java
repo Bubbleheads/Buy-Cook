@@ -48,3 +48,4 @@ public final class TabLayoutFragment extends Fragment {
         });
     }
 }
+

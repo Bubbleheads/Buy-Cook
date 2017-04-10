@@ -13,15 +13,15 @@
         android:queryHint="Search Recipe" />
 
     <GridView
-        android:layout_below = "@+id/searchRecipe"
         android:id="@+id/collection_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/searchRecipe"
         android:gravity="center"
         android:horizontalSpacing="8dp"
         android:numColumns="2"
+        android:padding="8dp"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="8dp"
-        android:padding="8dp" />
+        android:verticalSpacing="8dp" />
 
 </RelativeLayout>

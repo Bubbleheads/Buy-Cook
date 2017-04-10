@@ -13,24 +13,37 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class RecipesBookFragment extends Fragment {
-    private GridView collectionView;
     private ArrayList<Recipe> recipes;
-    private SearchView findRecipe;
     private RecipesBookAdapter recipesBookAdapter;
+    private Category chosenCategory;
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container,
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.grid_view_fragment, container, false);
-        recipes = ((MainActivity) getActivity()).getRecipesList();
+        recipes = filterRecipes(chosenCategory);
         setUpCollection(view);
         setUpSearching(view);
         return view;
     }
 
+    private ArrayList<Recipe> filterRecipes(Category category) {
+        final ArrayList<Recipe> result = new ArrayList<>();
+        for (Recipe recipe : ((MainActivity) getActivity()).getRecipesList()) {
+            if (recipe.getCategory().equals(category)) {
+                result.add(recipe);
+            }
+        }
+        return result;
+    }
+
+    public void setChosenCategory(final Category category) {
+        this.chosenCategory = chosenCategory;
+    }
+
     private void setUpCollection(final View view) {
-        collectionView = (GridView) view.findViewById(R.id.collection_view);
+        final GridView collectionView = (GridView) view.findViewById(R.id.collection_view);
         recipesBookAdapter = new RecipesBookAdapter(getContext(), recipes);
         collectionView.setAdapter(recipesBookAdapter);
         collectionView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -42,13 +55,12 @@ public class RecipesBookFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
                 recipesBookAdapter.getRecipes().get(position).changeFavorite();
                 recipesBookAdapter.notifyDataSetChanged();
-
             }
         });
     }
 
     private void setUpSearching(final View view) {
-        findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
+        final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {

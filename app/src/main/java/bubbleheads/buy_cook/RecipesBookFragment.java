@@ -17,7 +17,7 @@ public class RecipesBookFragment extends Fragment {
     private ArrayList<Recipe> recipes;
     private SearchView findRecipe;
     private RecipesBookAdapter recipesBookAdapter;
-    private Category chosenCategory = null;
+    private Category chosenCategory;
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
@@ -40,8 +40,8 @@ public class RecipesBookFragment extends Fragment {
         return result;
     }
 
-    public void setChosenCategory(final Category category) {
-        this.chosenCategory = category;
+    public void setChosenCategory(final Category chosenCategory) {
+        this.chosenCategory = chosenCategory;
     }
 
     private void setUpCollection(final View view) {
@@ -55,7 +55,7 @@ public class RecipesBookFragment extends Fragment {
                 Toast.makeText(view.getContext(),
                         recipesBookAdapter.getRecipes().get(position).getRecipeName(),
                         Toast.LENGTH_SHORT).show();
-                recipesBookAdapter.getRecipes().get(position).changeFavorite();
+                recipesBookAdapter.getRecipes().get(position).toggleFavorite();
                 recipesBookAdapter.notifyDataSetChanged();
                 ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));
                 ((MainActivity) getActivity()).showFragment(new RecipeDetailedFragment());

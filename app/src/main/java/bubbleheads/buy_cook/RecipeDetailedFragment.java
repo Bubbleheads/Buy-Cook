@@ -9,14 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RecipeDetailedFragment extends Fragment {
-    private Recipe recipeDescription;
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container,
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.detailed_recipe_fragment, container, false);
-        recipeDescription = ((MainActivity) getActivity()).getChosenRecipe();
+        Recipe recipeDescription = ((MainActivity) getActivity()).getDetailedRecipe();
         getActivity().setTitle(recipeDescription.getRecipeName());
         final ImageView detailedRecipeImage = (ImageView) view.findViewById(R.id.detailed_recipe_image);
         detailedRecipeImage.setImageResource(recipeDescription.getRecipePhoto());

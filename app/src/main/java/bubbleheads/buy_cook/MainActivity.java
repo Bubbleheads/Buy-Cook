@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-
 public class MainActivity extends AppCompatActivity {
 
     private final RecipeList recipeList = new RecipeList();
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         detailedRecipe = recipe;
     }
 
-    public Recipe getChosenRecipe() {
+    public Recipe getDetailedRecipe() {
         return detailedRecipe;
     }
 

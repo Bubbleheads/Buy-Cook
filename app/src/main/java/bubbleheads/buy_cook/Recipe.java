@@ -9,10 +9,10 @@ public class Recipe {
     private boolean favorite;
 
     public Recipe(final String name, final String detail,
-                  final int photo, final Category category, final String howToCook) {
+                  final int photo, final Category category, final String recipeHowToCook) {
         this.recipeName = name;
         this.recipeDetail = detail;
-        this.recipeHowToCook = howToCook;
+        this.recipeHowToCook = recipeHowToCook;
         this.recipePhoto = photo;
         this.category = category;
     }
@@ -41,7 +41,7 @@ public class Recipe {
         return category;
     }
 
-    public void changeFavorite() {
+    public void toggleFavorite() {
         this.favorite = !this.favorite;
     }
 }

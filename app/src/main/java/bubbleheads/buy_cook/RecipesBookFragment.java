@@ -43,7 +43,7 @@ public class RecipesBookFragment extends Fragment {
     }
 
     private void setUpCollection(final View view) {
-        GridView collectionView = (GridView) view.findViewById(R.id.collection_view);
+        final GridView collectionView = (GridView) view.findViewById(R.id.collection_view);
         recipesBookAdapter = new RecipesBookAdapter(getContext(), recipes);
         collectionView.setAdapter(recipesBookAdapter);
         collectionView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,7 +60,7 @@ public class RecipesBookFragment extends Fragment {
     }
 
     private void setUpSearching(final View view) {
-        SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
+        final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {

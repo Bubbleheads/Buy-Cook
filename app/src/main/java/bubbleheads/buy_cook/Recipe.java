@@ -8,6 +8,7 @@ public class Recipe {
     private final String recipeDetail;
     private final int recipePhoto;
     private final Category category;
+
     private boolean favorite;
 
     public Recipe(final String name, final String detail,

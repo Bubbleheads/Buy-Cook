@@ -15,16 +15,32 @@ import java.util.ArrayList;
 public class RecipesBookFragment extends Fragment {
     private ArrayList<Recipe> recipes;
     private RecipesBookAdapter recipesBookAdapter;
+    private int chosenCategoryID;
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container,
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.grid_view_fragment, container, false);
-        recipes = new RecipeList().getRecipes();
+        recipes = filterRecipes(chosenCategoryID);
         setUpCollection(view);
         setUpSearching(view);
         return view;
+    }
+
+    private ArrayList<Recipe> filterRecipes(int categoryID) {
+        final ArrayList<Recipe> result = new ArrayList<>();
+        final RecipeList recipeList = new RecipeList();
+        for (final Recipe recipe : recipeList.getRecipeInstance().getRecipes()) {
+            if (recipe.getCategoryID() == categoryID) {
+                result.add(recipe);
+            }
+        }
+        return result;
+    }
+
+    public void setChosenCategoryID(final int category) {
+        this.chosenCategoryID = category;
     }
 
     private void setUpCollection(final View view) {
@@ -40,7 +56,6 @@ public class RecipesBookFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
                 recipesBookAdapter.getRecipes().get(position).changeFavorite();
                 recipesBookAdapter.notifyDataSetChanged();
-
             }
         });
     }

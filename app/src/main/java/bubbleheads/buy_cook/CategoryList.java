@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class CategoryList {
 
+    private static final CategoryList categoryInstance = new CategoryList();
+
+    public static CategoryList getCategoryInstance() {return categoryInstance;}
+
     private static final ArrayList<Category> CATEGORY_LIST
             = new ArrayList<Category>() {
         {
@@ -23,12 +27,12 @@ public class CategoryList {
         }
     };
 
-    public ArrayList<Category> getCategoryList() {
+    public static ArrayList<Category> getCategoryList() {
         return CATEGORY_LIST;
     }
 
-    public Category getCategory(final int categoryID) {
-        for (Category category : CATEGORY_LIST) {
+    public static Category getCategory(final int categoryID) {
+        for (final Category category : CATEGORY_LIST) {
             if (category.getCategoryID() == categoryID) {
                 return category;
             }

@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class RecipeList {
 
+    private static final RecipeList recipeInstance = new RecipeList();
+
+    public static RecipeList getRecipeInstance() {return recipeInstance;}
+
     private static final ArrayList<Recipe> recipes = new ArrayList<Recipe> (){
         {
             add(new Recipe("Cocoa cocktail", "milk,cocoa,water", R.drawable.cocoacocktail, 7));
@@ -15,7 +19,7 @@ public class RecipeList {
         }
     };
 
-    public final ArrayList<Recipe> getRecipes() {
+    public static ArrayList<Recipe> getRecipes() {
         return recipes;
     }
 }

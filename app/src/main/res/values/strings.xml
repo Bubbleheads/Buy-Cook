@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Buy-Cook</string>
-    <string name="button_text">qedwd</string>
+    <string name="how_to_cook">How to cook:</string>
+    <string name="chosen_recipes">Chosen recipes</string>
+    <string name="ingredients_required">Ingredients required</string>
+    <string name="minus_button">-</string>
+    <string name="plus_button">+</string>
+
 </resources>

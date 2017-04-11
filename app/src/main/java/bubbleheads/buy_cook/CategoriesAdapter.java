@@ -7,7 +7,8 @@ import android.widget.TextView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.widget.Toast;
-
+import android.support.v7.widget.RecyclerView.Adapter;
+import android.support.v7.widget.RecyclerView.ViewHolder;
 import bubbleheads.buy_cook.CategoriesAdapter.MyViewHolder;
 
 public class CategoriesAdapter extends Adapter<MyViewHolder> {

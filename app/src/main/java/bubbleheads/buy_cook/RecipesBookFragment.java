@@ -13,7 +13,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class RecipesBookFragment extends Fragment {
+    private GridView collectionView;
     private ArrayList<Recipe> recipes;
+    private SearchView findRecipe;
     private RecipesBookAdapter recipesBookAdapter;
     private Category chosenCategory;
 
@@ -38,12 +40,12 @@ public class RecipesBookFragment extends Fragment {
         return result;
     }
 
-    public void setChosenCategory(final Category category) {
+    public void setChosenCategory(final Category chosenCategory) {
         this.chosenCategory = chosenCategory;
     }
 
     private void setUpCollection(final View view) {
-        final GridView collectionView = (GridView) view.findViewById(R.id.collection_view);
+        collectionView = (GridView) view.findViewById(R.id.collection_view);
         recipesBookAdapter = new RecipesBookAdapter(getContext(), recipes);
         collectionView.setAdapter(recipesBookAdapter);
         collectionView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -53,14 +55,16 @@ public class RecipesBookFragment extends Fragment {
                 Toast.makeText(view.getContext(),
                         recipesBookAdapter.getRecipes().get(position).getRecipeName(),
                         Toast.LENGTH_SHORT).show();
-                recipesBookAdapter.getRecipes().get(position).changeFavorite();
+                recipesBookAdapter.getRecipes().get(position).toggleFavorite();
                 recipesBookAdapter.notifyDataSetChanged();
+                ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));
+                ((MainActivity) getActivity()).showFragment(new RecipeDetailedFragment());
             }
         });
     }
 
     private void setUpSearching(final View view) {
-        final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
+        findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {

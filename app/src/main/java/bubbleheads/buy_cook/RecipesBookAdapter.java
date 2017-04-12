@@ -16,9 +16,8 @@ import java.util.List;
 
 public final class RecipesBookAdapter extends BaseAdapter implements Filterable {
     private final Context context;
-    private final ArrayList<Recipe> backupRecipes;
-
     private ArrayList<Recipe> recipes;
+    private final ArrayList<Recipe> backupRecipes;
     private RecipesBookAdapter.ValueFilter valueFilter;
 
     public RecipesBookAdapter(final Context context, final ArrayList<Recipe> recipes) {

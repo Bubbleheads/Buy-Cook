@@ -2,13 +2,12 @@ package bubbleheads.buy_cook;
 
 public class Category {
 
-    private static int globalID = 0;
     private final String name;
     private final int categoryID;
 
-    public Category(final String name) {
+    public Category(final String name, final int id) {
         this.name = name;
-        this.categoryID = ++globalID;
+        this.categoryID = id;
     }
 
     public String getName() {

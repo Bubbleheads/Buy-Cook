@@ -8,7 +8,7 @@ public class RecipeList {
 
     public static RecipeList getRecipeInstance() {return recipeInstance;}
 
-    private static final ArrayList<Recipe> recipes = new ArrayList<Recipe> (){
+    private final ArrayList<Recipe> recipes = new ArrayList<Recipe> (){
         {
             add(new Recipe("Cocoa cocktail", "milk,cocoa,water", R.drawable.cocoacocktail, 7));
             add(new Recipe("Cookie", "mint", R.drawable.pyrig, 9));
@@ -19,7 +19,7 @@ public class RecipeList {
         }
     };
 
-    public static ArrayList<Recipe> getRecipes() {
+    public ArrayList<Recipe> getRecipes() {
         return recipes;
     }
 }

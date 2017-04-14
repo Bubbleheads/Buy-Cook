@@ -33,15 +33,11 @@ public class Recipe {
         return recipeHowToCook;
     }
 
-    public boolean getFavorite() {
-        return favorite;
-    }
+    public boolean getFavorite() {return favorite;}
 
     public Category getCategory() {
         return category;
     }
 
-    public void toggleFavorite() {
-        this.favorite = !this.favorite;
-    }
+    public void toggleFavorite() {this.favorite = !this.favorite;}
 }

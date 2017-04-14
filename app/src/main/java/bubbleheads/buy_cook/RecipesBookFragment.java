@@ -30,8 +30,7 @@ public class RecipesBookFragment extends Fragment {
 
     private ArrayList<Recipe> filterRecipes(int categoryID) {
         final ArrayList<Recipe> result = new ArrayList<>();
-        final RecipeList recipeList = new RecipeList();
-        for (final Recipe recipe : recipeList.getRecipeInstance().getRecipes()) {
+        for (final Recipe recipe : RecipeList.getInstance().getRecipes()) {
             if (recipe.getCategoryID() == categoryID) {
                 result.add(recipe);
             }

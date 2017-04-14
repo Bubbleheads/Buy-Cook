@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class RecipeList {
 
-    private static final RecipeList recipeInstance = new RecipeList();
+    private static final RecipeList INSTANCE = new RecipeList();
 
-    public static RecipeList getRecipeInstance() {return recipeInstance;}
+    public static RecipeList getInstance() {return INSTANCE;}
+
+    private RecipeList(){}
 
     private final ArrayList<Recipe> recipes = new ArrayList<Recipe> (){
         {

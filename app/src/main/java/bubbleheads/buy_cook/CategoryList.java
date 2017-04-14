@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class CategoryList {
 
-    private static final CategoryList categoryInstance = new CategoryList();
+    private static final CategoryList INSTANCE = new CategoryList();
 
-    public static CategoryList getCategoryInstance() {return categoryInstance;}
+    public static CategoryList getInstance() {return INSTANCE;}
+
+    private CategoryList(){}
 
     private final ArrayList<Category> CATEGORY_LIST
             = new ArrayList<Category>() {

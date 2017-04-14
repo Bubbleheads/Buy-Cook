@@ -7,9 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
+=======
+>>>>>>> 1f69cb79b561d4c072fde2fef0c76682d3fbff2a
 
 public class CategoriesFragment extends Fragment {
 

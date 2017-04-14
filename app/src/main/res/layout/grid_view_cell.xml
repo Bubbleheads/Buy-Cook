@@ -20,6 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/grid_image"
         android:background="@color/colorWhite"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp" />
 

@@ -69,7 +69,7 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
         @Override
         protected FilterResults performFiltering(final CharSequence constraint) {
             FilterResults results = new FilterResults();
-            if (TextUtils.isEmpty(constraint)) {
+            if (!constraint.toString().isEmpty()) {
                 final List<Recipe> search = searchRecipeName(constraint, recipes);
                 results.count = search.size();
                 results.values = search;

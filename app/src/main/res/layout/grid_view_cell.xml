@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorWhite">
+
+    android:background="@color/colorSomeWhiteBackground">
 
     <ImageView
         android:id="@+id/grid_image"
@@ -19,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/grid_image"
-        android:background="@color/colorWhite"
+        android:background="@color/colorSomeWhiteBackground"
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/colorPrimaryDark"
@@ -32,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/grid_name"
         android:textColor="@color/colorPrimaryDark"
-        android:background="@color/colorWhite" />
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorSomeWhiteBackground" />
 
 </RelativeLayout>

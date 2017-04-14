@@ -70,7 +70,6 @@ public class RecipesBookFragment extends Fragment {
             public boolean onQueryTextSubmit(final String query) {
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(final String newText) {
                 recipesBookAdapter.getFilter().filter(newText);

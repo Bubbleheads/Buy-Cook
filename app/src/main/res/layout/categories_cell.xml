@@ -4,10 +4,16 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <ImageButton
+        android:id="@+id/arrowback"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/categories_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp" />
 

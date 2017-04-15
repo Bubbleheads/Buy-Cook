@@ -57,6 +57,7 @@ public class FavoriteRecipesFragment extends Fragment {
         recipesBookAdapter = new RecipesBookAdapter(getContext(), recipes);
         favoriteView.setAdapter(recipesBookAdapter);
         favoriteView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            
             @Override
             public void onItemClick(final AdapterView<?> adapterView, final View view,
                                     final int position, final long l) {
@@ -73,6 +74,7 @@ public class FavoriteRecipesFragment extends Fragment {
     private void setUpSearching(final View view) {
         findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            
             @Override
             public boolean onQueryTextSubmit(final String query) {
                 return false;
@@ -86,4 +88,3 @@ public class FavoriteRecipesFragment extends Fragment {
         });
     }
 }
-

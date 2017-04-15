@@ -9,12 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import static android.R.attr.button;
 import static android.R.id.toggle;
 
 public class RecipeDetailedFragment extends Fragment {
-
 
     @Override
     public View onCreateView(final LayoutInflater inflater,

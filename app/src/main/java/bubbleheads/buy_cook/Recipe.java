@@ -4,17 +4,17 @@ public class Recipe {
     private final String recipeName;
     private final String recipeDetail;
     private final int recipePhoto;
+    private final int categoryID;
     private final String recipeHowToCook;
-    private final Category category;
     private boolean favorite;
 
     public Recipe(final String name, final String detail,
-                  final int photo, final Category category, final String recipeHowToCook) {
+                  final int photo, final int categoryID, final String recipeHowToCook) {
         this.recipeName = name;
         this.recipeDetail = detail;
         this.recipeHowToCook = recipeHowToCook;
         this.recipePhoto = photo;
-        this.category = category;
+        this.categoryID = categoryID;
     }
 
     public String getRecipeName() {
@@ -37,8 +37,8 @@ public class Recipe {
         return favorite;
     }
 
-    public Category getCategory() {
-        return category;
+    public int getCategoryID() {
+        return categoryID;
     }
 
     public void toggleFavorite() {

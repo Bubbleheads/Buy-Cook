@@ -17,6 +17,7 @@ public class CategoriesFragment extends Fragment {
         final View view = inflater.inflate(R.layout.categories_fragment, container, false);
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         final CategoriesAdapter adapter = new CategoriesAdapter(this);
+        getActivity().setTitle("Categories");
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapter);

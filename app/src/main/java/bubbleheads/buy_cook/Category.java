@@ -1,19 +1,20 @@
 package bubbleheads.buy_cook;
 
-public enum Category {
-
-    SOUPS("Soups"), PIZZA("Pizza"), MEAT("Meat"), SALADS("Salads"),
-    LUNCH("Lunch"), MAIN_DISHES("Main dishes"), DRINKS("Drinks"),
-    DESSERTS("Desserts"), COOKIES("Cookies"), CAKES("Cakes"),
-    PIES("Pies"), VEGAN("Vegan"), VEGETERIAN("Vegeterian");
+public class Category {
 
     private final String name;
+    private final int categoryID;
 
-    Category(final String name) {
+    public Category(final String name, final int id) {
         this.name = name;
+        this.categoryID = id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getCategoryID() {
+        return categoryID;
     }
 }

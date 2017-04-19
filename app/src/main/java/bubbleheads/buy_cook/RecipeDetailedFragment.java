@@ -27,10 +27,11 @@ public class RecipeDetailedFragment extends Fragment {
         recipeDetail.setText(recipeDescription.getRecipeDetail());
         final TextView detailedRecipes = (TextView) view.findViewById(R.id.how_to_cook);
         detailedRecipes.setText(recipeDescription.getRecipeHowToCook());
-        final FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.fab);
+       final FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.fab);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 recipeDescription.toggleFavorite();
+                Toast.makeText(getContext(), "Added to favorites", Toast.LENGTH_SHORT ).show();
             }
         });
         return view;

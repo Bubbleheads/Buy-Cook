@@ -1,7 +1,10 @@
 package bubbleheads.buy_cook;
 
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,11 +68,14 @@ public class RecipesBookFragment extends Fragment {
 
     private void setUpSearching(final View view) {
         findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
+        findRecipe.setQueryHint("Type something...");
+        findRecipe.clearFocus();
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {
                 return false;
             }
+
             @Override
             public boolean onQueryTextChange(final String newText) {
                 recipesBookAdapter.getFilter().filter(newText);

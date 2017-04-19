@@ -93,15 +93,16 @@
             android:textSize="14sp"
             tools:text="-" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/plus_button"
-            android:src="@drawable/ic_like"
-            app:layout_anchorGravity="bottom|right|end"
-            android:layout_toEndOf="@+id/minus_button"
-            android:layout_alignBottom="@+id/detailed_recipe_detail" />
+       <android.support.design.widget.FloatingActionButton
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/fab"
+           android:src="@drawable/ic_like"
+           android:textOff="white"
+           android:textOn="red"
+           android:onClick="toggleButton"
+           android:layout_alignTop="@+id/ingredients_required"
+           android:layout_alignEnd="@+id/plus_button" />
 
     </RelativeLayout>
 </ScrollView>

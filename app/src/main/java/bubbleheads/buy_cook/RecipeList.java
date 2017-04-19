@@ -19,13 +19,13 @@ public class RecipeList {
     private final String Salad = "Cut your tomato";
 
     public RecipeList() {
-        recipes.add(new Recipe("Cocoa cocktail", "milk, cocoa, water", R.drawable.cocoacocktail, Category.DRINKS, CocoaCocatail));
-        recipes.add(new Recipe("Cookie", "mint, flour,sugar", R.drawable.pyrig, Category.COOKIES, Cookie));
-        recipes.add(new Recipe("Sweets", "berries,sugar,flour,fat", R.drawable.kex, Category.COOKIES, Kex));
-        recipes.add(new Recipe("Coffee", "chocolade, coffee, sugar", R.drawable.coffee, Category.DRINKS, Coffee));
-        recipes.add(new Recipe("Dumplings", "sugar,fat,flour,berries", R.drawable.pampukh, Category.LUNCH, TastyFood));
-        recipes.add(new Recipe("Cookies with jam", "sugar,flour,jam,butter,jam", R.drawable.pechenko, Category.COOKIES, Cookies));
-        recipes.add(new Recipe("Salad","salad,tomato", R.drawable.salad,Category.SALADS,Salad ));
+        recipes.add(new Recipe("Cocoa cocktail", "Milk, cocoa, water", R.drawable.cocoacocktail, Category.DRINKS, CocoaCocatail));
+        recipes.add(new Recipe("Cookie", "Mint, flour,sugar", R.drawable.pyrig, Category.COOKIES, Cookie));
+        recipes.add(new Recipe("Sweets", "Berries,sugar,flour,fat", R.drawable.kex, Category.COOKIES, Kex));
+        recipes.add(new Recipe("Coffee", "Chocolade, coffee, sugar", R.drawable.coffee, Category.DRINKS, Coffee));
+        recipes.add(new Recipe("Dumplings", "Sugar,fat,flour,berries", R.drawable.pampukh, Category.LUNCH, TastyFood));
+        recipes.add(new Recipe("Cookies with jam", "Sugar,flour,jam,butter,jam", R.drawable.pechenko, Category.COOKIES, Cookies));
+        recipes.add(new Recipe("Salad", "Salad,tomato", R.drawable.salad, Category.SALADS, Salad));
     }
 
     public final ArrayList<Recipe> getRecipes() {

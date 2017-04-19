@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/grid_image"
         android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_margin="8dp"
         android:adjustViewBounds="true"
@@ -16,9 +16,9 @@
 
     <TextView
         android:id="@+id/grid_name"
+        android:layout_alignLeft="@+id/grid_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/grid_image"
         android:layout_below="@+id/grid_image"
         android:background="@color/colorSomeWhiteBackground"
         android:ellipsize="end"
@@ -28,12 +28,12 @@
 
     <TextView
         android:id="@+id/grid_detail"
+        android:layout_alignLeft="@+id/grid_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/grid_image"
         android:layout_below="@+id/grid_name"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorSomeWhiteBackground"
-        android:textColor="@color/colorPrimaryDark" />
+        android:background="@color/colorSomeWhiteBackground" />
 
 </RelativeLayout>

@@ -18,12 +18,23 @@
             android:scaleType="centerCrop" />
 
         <TextView
+            android:id="@+id/ingredients_required"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ingredients_required"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/detailed_recipe_image"
+            android:layout_alignStart="@+id/howcook" />
+
+        <TextView
             android:id="@+id/detailed_recipe_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorForText"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="4dp"
+            android:layout_margin="4dp"
             android:textSize="14sp"
             android:layout_below="@+id/ingredients_required"
             android:layout_centerHorizontal="true" />
@@ -87,17 +98,6 @@
             android:layout_alignBaseline="@+id/numb_of_recipe"
             android:layout_alignBottom="@+id/numb_of_recipe"
             android:layout_toStartOf="@+id/plus_button" />
-
-        <TextView
-            android:id="@+id/ingredients_required"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ingredients_required"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/detailed_recipe_image"
-            android:layout_alignStart="@+id/howcook" />
 
     </RelativeLayout>
 </ScrollView>

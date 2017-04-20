@@ -1,7 +1,6 @@
 package bubbleheads.buy_cook;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,9 @@ import java.util.List;
 
 public final class RecipesBookAdapter extends BaseAdapter implements Filterable {
     private final Context context;
-    private ArrayList<Recipe> recipes;
     private final ArrayList<Recipe> backupRecipes;
+
+    private ArrayList<Recipe> recipes;
     private RecipesBookAdapter.ValueFilter valueFilter;
 
     public RecipesBookAdapter(final Context context, final ArrayList<Recipe> recipes) {
@@ -69,7 +69,7 @@ public final class RecipesBookAdapter extends BaseAdapter implements Filterable 
         @Override
         protected FilterResults performFiltering(final CharSequence constraint) {
             FilterResults results = new FilterResults();
-            if (TextUtils.isEmpty(constraint)) {
+            if (!constraint.toString().isEmpty()) {
                 final List<Recipe> search = searchRecipeName(constraint, recipes);
                 results.count = search.size();
                 results.values = search;

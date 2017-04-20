@@ -65,6 +65,8 @@ public class RecipesBookFragment extends Fragment {
 
     private void setUpSearching(final View view) {
         final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
+        findRecipe.setQueryHint("Type something...");
+        findRecipe.clearFocus();
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {

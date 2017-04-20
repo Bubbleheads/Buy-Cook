@@ -1,9 +1,11 @@
 package bubbleheads.buy_cook;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,13 +14,14 @@ public class MainActivity extends AppCompatActivity {
 
     private Recipe detailedRecipe;
     private Fragment currentFragment;
+    private static int count = 0;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_main);
         showFragment(new TabLayoutFragment());
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void setDetailedRecipe(final Recipe recipe) {
@@ -35,15 +38,18 @@ public class MainActivity extends AppCompatActivity {
         final FragmentManager supportFragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
-        fragmentTransaction.addToBackStack(null);
+        if (count != 0) {
+            fragmentTransaction.addToBackStack(null);
+        }
         fragmentTransaction.commit();
+        count++;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                super.onBackPressed();
+                onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -51,5 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

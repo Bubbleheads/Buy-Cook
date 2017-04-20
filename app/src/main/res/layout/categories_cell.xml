@@ -23,5 +23,5 @@
         android:layout_marginRight="16dp"
         android:layout_weight="1"
         android:padding="8dp"
-        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+        android:src="@drawable/ic_keyboard_arrow_right_24dp" />
 </LinearLayout>

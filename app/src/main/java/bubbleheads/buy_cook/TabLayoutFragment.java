@@ -30,7 +30,8 @@ public final class TabLayoutFragment extends Fragment {
     }
 
     private void setUpViewPager(final ViewPager viewPager, final TabLayout tabLayout) {
-        final PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(), tabLayout.getTabCount());
+        final PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(),
+                tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

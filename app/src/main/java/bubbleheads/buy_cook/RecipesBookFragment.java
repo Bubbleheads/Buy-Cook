@@ -16,39 +16,38 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class RecipesBookFragment extends Fragment {
-    private GridView collectionView;
     private ArrayList<Recipe> recipes;
-    private SearchView findRecipe;
     private RecipesBookAdapter recipesBookAdapter;
-    private Category chosenCategory;
+    private int chosenCategoryID;
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container,
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.grid_view_fragment, container, false);
-        recipes = filterRecipes(chosenCategory);
+        recipes = filterRecipes(chosenCategoryID);
+        getActivity().setTitle(CategoryList.getInstance().getCategory(chosenCategoryID).getName());
         setUpCollection(view);
         setUpSearching(view);
         return view;
     }
 
-    private ArrayList<Recipe> filterRecipes(Category category) {
+    private ArrayList<Recipe> filterRecipes(int categoryID) {
         final ArrayList<Recipe> result = new ArrayList<>();
-        for (Recipe recipe : ((MainActivity) getActivity()).getRecipesList()) {
-            if (recipe.getCategory().equals(category)) {
+        for (final Recipe recipe : RecipeList.getInstance().getRecipes()) {
+            if (recipe.getCategoryID() == categoryID) {
                 result.add(recipe);
             }
         }
         return result;
     }
 
-    public void setChosenCategory(final Category chosenCategory) {
-        this.chosenCategory = chosenCategory;
+    public void setChosenCategoryID(final int category) {
+        this.chosenCategoryID = category;
     }
 
     private void setUpCollection(final View view) {
-        collectionView = (GridView) view.findViewById(R.id.collection_view);
+        final GridView collectionView = (GridView) view.findViewById(R.id.collection_view);
         recipesBookAdapter = new RecipesBookAdapter(getContext(), recipes);
         collectionView.setAdapter(recipesBookAdapter);
         collectionView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,7 +66,7 @@ public class RecipesBookFragment extends Fragment {
     }
 
     private void setUpSearching(final View view) {
-        findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
+        final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
         findRecipe.setQueryHint("Type something...");
         findRecipe.clearFocus();
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -83,5 +82,4 @@ public class RecipesBookFragment extends Fragment {
             }
         });
     }
-
 }

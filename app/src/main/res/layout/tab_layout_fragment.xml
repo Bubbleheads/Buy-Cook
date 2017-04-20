@@ -17,5 +17,4 @@
         android:background="@color/colorWhite">
 
     </android.support.design.widget.TabLayout>
-
 </LinearLayout>

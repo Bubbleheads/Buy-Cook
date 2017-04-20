@@ -34,7 +34,7 @@ public class CategoriesAdapter extends Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        final Category category = Category.values()[position];
+        final Category category = CategoryList.getInstance().getCategoryList().get(position);
         final TextView categoryName = (TextView) holder.itemView.findViewById(R.id.categories_name);
         categoryName.setText(category.getName());
         categoryName.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +43,7 @@ public class CategoriesAdapter extends Adapter<MyViewHolder> {
                 Toast.makeText(view.getContext(), category.getName(),
                         Toast.LENGTH_SHORT).show();
                 final RecipesBookFragment fragment = new RecipesBookFragment();
-                fragment.setChosenCategory(category);
+                fragment.setChosenCategoryID(category.getCategoryID());
                 ((MainActivity) categoriesFragment.getActivity()).showFragment(fragment);
             }
         });
@@ -51,6 +51,6 @@ public class CategoriesAdapter extends Adapter<MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return Category.values().length;
+        return CategoryList.getInstance().getCategoryList().size();
     }
 }

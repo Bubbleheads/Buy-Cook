@@ -7,24 +7,21 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
 import java.util.ArrayList;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final RecipeList recipeList = new RecipeList();
     private Recipe detailedRecipe;
+    private Fragment currentFragment;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showFragment(new TabLayoutFragment());
-        getSupportActionBar();
-    }
-
-    public ArrayList<Recipe> getRecipesList() {
-        return recipeList.getRecipes();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void setDetailedRecipe(final Recipe recipe) {
@@ -36,10 +33,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showFragment(final Fragment fragment) {
+        currentFragment = fragment;
+
         final FragmentManager supportFragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }

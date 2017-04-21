@@ -43,16 +43,22 @@
             android:id="@+id/grid_time_of_cooking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:layout_alignLeft="@+id/watch"
             android:layout_below="@+id/grid_name"
             android:padding="8dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/chef"/>
 
         <TextView
             android:id="@+id/grid_difficulty_of_cooking"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:layout_alignStart="@+id/grid_time_of_cooking"
             android:layout_below="@+id/grid_name"
             android:padding="8dp" />

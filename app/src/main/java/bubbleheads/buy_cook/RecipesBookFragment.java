@@ -1,8 +1,11 @@
 package bubbleheads.buy_cook;
 
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -71,9 +74,6 @@ public class RecipesBookFragment extends Fragment {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, final View view,
                                     final int position, final long l) {
-                Toast.makeText(view.getContext(),
-                        recipesBookAdapter.getRecipes().get(position).getRecipeName(),
-                        Toast.LENGTH_SHORT).show();
                 recipesBookAdapter.getRecipes().get(position).toggleFavorite();
                 recipesBookAdapter.notifyDataSetChanged();
                 ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));

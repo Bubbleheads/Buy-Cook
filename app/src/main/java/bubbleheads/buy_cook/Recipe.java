@@ -6,14 +6,18 @@ public class Recipe {
     private final int recipePhoto;
     private final int categoryID;
     private final String recipeHowToCook;
+    private final String timeOfCooking;
+    private final String difficultyOfCooking;
     private boolean favorite;
 
-    public Recipe(final String name, final String detail,
-                  final int photo, final int categoryID, final String recipeHowToCook) {
+    public Recipe(final String name, final String detail, final int photo, final int categoryID,
+                  final String recipeHowToCook, final String timeOfCooking,final String difficultyOfCooking) {
         this.recipeName = name;
         this.recipeDetail = detail;
         this.recipeHowToCook = recipeHowToCook;
         this.recipePhoto = photo;
+        this.difficultyOfCooking = difficultyOfCooking;
+        this.timeOfCooking = timeOfCooking;
         this.categoryID = categoryID;
     }
 
@@ -32,6 +36,10 @@ public class Recipe {
     public String getRecipeHowToCook() {
         return recipeHowToCook;
     }
+
+    public String getTimeOfCooking() { return timeOfCooking; }
+
+    public String getDifficultyOfCooking() { return difficultyOfCooking; }
 
     public boolean getFavorite() {
         return favorite;

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible">
+    android:visibility="visible"
+    android:id="@+id/colorChange">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -68,15 +69,17 @@
             android:id="@+id/plus_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignEnd="@+id/how_to_cook"
-            android:layout_alignParentBottom="true"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:onClick="countDE"
             android:backgroundTint="@color/colorAccent"
             android:clickable="true"
             android:text="@string/plus_button"
             android:textSize="14sp"
-            tools:text="+" />
+            tools:text="+"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/how_to_cook"
+            android:layout_marginEnd="25dp" />
 
         <Button
             android:id="@+id/minus_button"
@@ -86,12 +89,25 @@
             android:layout_marginEnd="19dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:onClick="countIN"
             android:layout_toStartOf="@+id/plus_button"
             android:backgroundTint="@color/colorAccent"
             android:clickable="true"
             android:text="@string/minus_button"
             android:textSize="14sp"
             tools:text="-" />
+
+        <TextView
+            android:id="@+id/couterValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAlignment="center"
+            android:layout_marginStart="42dp"
+            android:layout_alignBaseline="@+id/numb_of_recipe"
+            android:layout_alignBottom="@+id/numb_of_recipe"
+            android:layout_alignStart="@+id/minus_button"
+            android:layout_toStartOf="@+id/plus_button" />
 
        <android.support.design.widget.FloatingActionButton
            android:layout_width="wrap_content"

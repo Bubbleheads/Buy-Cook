@@ -2,12 +2,9 @@ package bubbleheads.buy_cook;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +28,7 @@ public class RecipesBookFragment extends Fragment {
         getActivity().setTitle(CategoryList.getInstance().getCategory(chosenCategoryID).getName());
         setUpCollection(view);
         setUpSearching(view);
+        setHasOptionsMenu(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return view;
     }
@@ -45,7 +43,7 @@ public class RecipesBookFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-
+                getActivity().onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);

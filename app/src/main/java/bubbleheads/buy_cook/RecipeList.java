@@ -25,12 +25,12 @@ public class RecipeList {
 
     private final ArrayList<Recipe> recipes = new ArrayList<Recipe> (){
         {
-            add(new Recipe("Cocoa cocktail", "milk, cocoa, water", R.drawable.cocoacocktail, 7, CocoaCocatail));
-            add(new Recipe("Cookie", "mint, flour,sugar", R.drawable.pyrig, 9, Cookie));
-            add(new Recipe("Sweets", "berries,sugar,flour,fat", R.drawable.kex, 9, Kex));
-            add(new Recipe("Coffee", "chocolade, coffee, sugar", R.drawable.coffee, 7, Coffee));
-            add(new Recipe("Dumplings", "sugar,fat,flour,berries", R.drawable.pampukh, 5, TastyFood));
-            add(new Recipe("Cookies with jam", "sugar,flour,jam,butter,jam", R.drawable.pechenko, 9, Cookies));
+            add(new Recipe("Cocoa cocktail", "Milk, cocoa, water", R.drawable.cocoacocktail, 7, CocoaCocatail, "10min", "1"));
+            add(new Recipe("Cookie", "Mint, flour,sugar", R.drawable.pyrig, 9, Cookie, "2hours", "4"));
+            add(new Recipe("Sweets", "Berries,sugar,flour,fat", R.drawable.kex, 9, Kex, "50min", "3"));
+            add(new Recipe("Coffee", "Chocolade, coffee, sugar", R.drawable.coffee, 7, Coffee, "10min", "1"));
+            add(new Recipe("Dumplings", "Sugar,fat,flour,berries", R.drawable.pampukh, 5, TastyFood, "3hours", "2"));
+            add(new Recipe("Cookies with jam", "Sugar,flour,jam,butter,jam", R.drawable.pechenko, 9, Cookies, "1hour", "3"));
         }
     };
 

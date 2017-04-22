@@ -9,10 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
 import static android.R.attr.button;
 import static android.R.id.toggle;
 
 public class RecipeDetailedFragment extends Fragment {
+    int counter = 0;
+
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
@@ -27,11 +32,28 @@ public class RecipeDetailedFragment extends Fragment {
         recipeDetail.setText(recipeDescription.getRecipeDetail());
         final TextView detailedRecipes = (TextView) view.findViewById(R.id.how_to_cook);
         detailedRecipes.setText(recipeDescription.getRecipeHowToCook());
-       final FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.fab);
+        final FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.fab);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 recipeDescription.toggleFavorite();
                 Toast.makeText(getContext(), "Added to favorites", Toast.LENGTH_SHORT ).show();
+            }
+        });
+        final TextView txtCount = (TextView) view.findViewById(R.id.couterValue);
+        final Button buttonClick = (Button) view.findViewById(R.id.plus_button);
+        buttonClick.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+              String countValue = txtCount.getText().toString();
+                int intcountValue = Integer.parseInt(countValue);
+                intcountValue++;
+
+                txtCount.setText(String.valueOf(intcountValue));
+            }
+        });
+        final Button buttonReset = (Button) view.findViewById(R.id.minus_button);
+        buttonReset.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                txtCount.setText(String.valueOf(0));
             }
         });
         return view;

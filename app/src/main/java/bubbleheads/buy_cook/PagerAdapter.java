@@ -22,7 +22,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case COLLECTION_SCREEN:
                 return new CategoriesFragment();
             case FAVOURITE_RECIPES:
-                return new Fragment();
+                return new FavoriteRecipesFragment();
             case CHOSEN_RECIPES:
                 return new Fragment();
             default:

@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Recipe detailedRecipe;
     private Fragment currentFragment;
-    private static int count = 0;
+    private static boolean activityPass;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
         final FragmentManager supportFragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
-        if (count != 0) {
+        if (activityPass) {
             fragmentTransaction.addToBackStack(null);
         }
         fragmentTransaction.commit();
-        count++;
+        activityPass = true;
     }
 }

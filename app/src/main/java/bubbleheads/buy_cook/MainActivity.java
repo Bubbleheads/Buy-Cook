@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,19 +35,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                super.onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return true;
     }
 }

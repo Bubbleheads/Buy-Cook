@@ -29,7 +29,7 @@ public final class TabLayoutFragment extends Fragment {
     }
 
     private void setUpViewPager(final ViewPager viewPager, final TabLayout tabLayout) {
-        final PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(),
+        final PagerAdapter pagerAdapter = new PagerAdapter(getChildFragmentManager(),
                 tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -49,3 +49,4 @@ public final class TabLayoutFragment extends Fragment {
         });
     }
 }
+

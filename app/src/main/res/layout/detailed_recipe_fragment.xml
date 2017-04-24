@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -88,6 +89,7 @@
             android:layout_marginRight="16dp"
             android:backgroundTint="@color/colorAccent"
             android:clickable="true"
+            android:onClick="countDE"
             android:text="@string/plus_button"
             android:textSize="14sp"
             tools:text="+" />
@@ -104,9 +106,34 @@
             android:layout_toStartOf="@+id/plus_button"
             android:backgroundTint="@color/colorAccent"
             android:clickable="true"
+            android:onClick="countIN"
             android:text="@string/minus_button"
             android:textSize="14sp"
             tools:text="-" />
+
+        <TextView
+            android:id="@+id/couterValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/numb_of_recipe"
+            android:layout_alignBottom="@+id/numb_of_recipe"
+            android:layout_alignStart="@+id/minus_button"
+            android:layout_marginStart="42dp"
+            android:layout_toStartOf="@+id/plus_button"
+            android:text="0"
+            android:textAlignment="center" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/plus_button"
+            android:layout_alignTop="@+id/ingredients_required"
+            android:onClick="toggleButton"
+            android:src="@drawable/ic_like"
+            android:textOff="white"
+            android:textOn="red"
+            app:elevation="5dp" />
 
     </RelativeLayout>
 </ScrollView>

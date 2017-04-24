@@ -1,12 +1,11 @@
 package bubbleheads.buy_cook;
 
+import android.support.v7.widget.RecyclerView.Adapter;
+import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.support.v7.widget.RecyclerView.Adapter;
-import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.widget.Toast;
 
 import bubbleheads.buy_cook.CategoriesAdapter.MyViewHolder;
 
@@ -39,8 +38,6 @@ public class CategoriesAdapter extends Adapter<MyViewHolder> {
         categoryName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), category.getName(),
-                        Toast.LENGTH_SHORT).show();
                 final RecipesBookFragment fragment = new RecipesBookFragment();
                 fragment.setChosenCategoryID(category.getCategoryID());
                 ((MainActivity) categoriesFragment.getActivity()).showFragment(fragment);

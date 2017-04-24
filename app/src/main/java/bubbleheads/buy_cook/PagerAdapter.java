@@ -10,17 +10,19 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     private static final int FAVOURITE_RECIPES = 1;
     private static final int CHOSEN_RECIPES = 2;
     private final int numOfTabs;
+    private final CategoriesFragment categoriesFragment;
 
     public PagerAdapter(final FragmentManager fragmentManager, final int numOfTabs) {
         super(fragmentManager);
         this.numOfTabs = numOfTabs;
+        categoriesFragment = new CategoriesFragment();
     }
 
     @Override
     public Fragment getItem(final int position) {
         switch (position) {
             case COLLECTION_SCREEN:
-                return new CategoriesFragment();
+                return categoriesFragment;
             case FAVOURITE_RECIPES:
                 return new Fragment();
             case CHOSEN_RECIPES:

@@ -8,7 +8,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
 import java.util.ArrayList;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -22,7 +24,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showFragment(new TabLayoutFragment());
+      //  showFragment(new TabLayoutFragment());
+        if (savedInstanceState == null) {
+           showFragment(new TabLayoutFragment());
+          //  getFragmentManager().beginTransaction()
+            //        .add(R.id.container, new PlaceholderFragment()).commit();
+        }
     }
 
     public void setDetailedRecipe(final Recipe recipe) {

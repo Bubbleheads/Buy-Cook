@@ -24,12 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  showFragment(new TabLayoutFragment());
-        if (savedInstanceState == null) {
-           showFragment(new TabLayoutFragment());
-          //  getFragmentManager().beginTransaction()
-            //        .add(R.id.container, new PlaceholderFragment()).commit();
-        }
+        showFragment(new TabLayoutFragment());
     }
 
     public void setDetailedRecipe(final Recipe recipe) {

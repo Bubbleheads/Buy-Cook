@@ -1,10 +1,14 @@
 package bubbleheads.buy_cook;
 
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -27,7 +31,25 @@ public class RecipesBookFragment extends Fragment {
         getActivity().setTitle(CategoryList.getInstance().getCategory(chosenCategoryID).getName());
         setUpCollection(view);
         setUpSearching(view);
+        setHasOptionsMenu(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return view;
+    }
+
+    @Override
+    public void onStop(){
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        super.onStop();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getActivity().onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private ArrayList<Recipe> filterRecipes(int categoryID) {
@@ -52,9 +74,6 @@ public class RecipesBookFragment extends Fragment {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, final View view,
                                     final int position, final long l) {
-                Toast.makeText(view.getContext(),
-                        recipesBookAdapter.getRecipes().get(position).getRecipeName(),
-                        Toast.LENGTH_SHORT).show();
                 recipesBookAdapter.getRecipes().get(position).toggleFavorite();
                 recipesBookAdapter.notifyDataSetChanged();
                 ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));
@@ -65,6 +84,8 @@ public class RecipesBookFragment extends Fragment {
 
     private void setUpSearching(final View view) {
         final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
+        findRecipe.setQueryHint("Type something...");
+        findRecipe.clearFocus();
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {

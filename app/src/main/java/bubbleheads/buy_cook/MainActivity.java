@@ -1,10 +1,14 @@
 package bubbleheads.buy_cook;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import java.util.ArrayList;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
 
     private Recipe detailedRecipe;
     private Fragment currentFragment;
+    private static boolean activityPass;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showFragment(new TabLayoutFragment());
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void setDetailedRecipe(final Recipe recipe) {
@@ -35,21 +39,10 @@ public class MainActivity extends AppCompatActivity {
         final FragmentManager supportFragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                super.onBackPressed();
-                return true;
+        if (activityPass) {
+            fragmentTransaction.addToBackStack(null);
         }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return true;
+        fragmentTransaction.commit();
+        activityPass = true;
     }
 }

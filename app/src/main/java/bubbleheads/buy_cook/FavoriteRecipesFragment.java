@@ -1,9 +1,5 @@
 package bubbleheads.buy_cook;
 
-/**
- * Created by MARVIN on 27.04.2017.
- */
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
@@ -32,6 +28,7 @@ public class FavoriteRecipesFragment extends Fragment {
         setUpSearching(view);
         return view;
     }
+
     private ArrayList<Recipe> filterRecipes() {
         final ArrayList<Recipe> result = new ArrayList<>();
         for (Recipe recipe : RecipeList.getInstance().getRecipes()) {
@@ -53,13 +50,13 @@ public class FavoriteRecipesFragment extends Fragment {
                 Toast.makeText(view.getContext(),
                         recipesBookAdapter.getRecipes().get(position).getRecipeName(),
                         Toast.LENGTH_SHORT).show();
-                recipesBookAdapter.getRecipes().get(position).toggleFavorite();
                 recipesBookAdapter.notifyDataSetChanged();
                 ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));
                 ((MainActivity) getActivity()).showFragment(new RecipeDetailedFragment());
             }
         });
     }
+
     private void setUpSearching(final View view) {
         final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
         findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

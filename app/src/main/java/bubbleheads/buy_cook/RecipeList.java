@@ -38,4 +38,12 @@ public class RecipeList {
     public ArrayList<Recipe> getRecipes() {
         return recipes;
     }
+
+    public void toggleFavoriteInList(Recipe recipe){
+        for (Recipe inListRecipe: recipes){
+            if (recipe.getRecipeName().equals(inListRecipe.getRecipeName())){
+                inListRecipe.toggleFavorite();
+            }
+        }
+    }
 }

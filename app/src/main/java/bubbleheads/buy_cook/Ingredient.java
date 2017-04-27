@@ -9,6 +9,11 @@ public class Ingredient {
         this.measurement = measurement;
     }
 
-    public String getName() {return name;}
-    public Measurement getMeasurement() {return measurement;}
+    public String getName() {
+        return name;
+    }
+
+    public Measurement getMeasurement() {
+        return measurement;
+    }
 }

@@ -22,9 +22,9 @@ public class Basket {
     public void addProducts(HashMap<Ingredient, Integer> products, int multiplier) {
         for (Ingredient ingredient : products.keySet()) {
             if (isPresent(ingredient)) {
-                final int currentQuantity = productsToBuy.get(containedIngredient);
-                productsToBuy.put(containedIngredient,
-                        currentQuantity + products.get(containedIngredient));
+                final int currentQuantity = productsToBuy.get(ingredient);
+                productsToBuy.put(ingredient,
+                        currentQuantity + products.get(ingredient));
             } else {
                 productsToBuy.put(ingredient, products.get(ingredient));
             }
@@ -32,7 +32,7 @@ public class Basket {
     }
 
     private boolean isPresent(Ingredient ingredient) {
-        boolean result;
+        boolean result = false;
         for (Ingredient inListIngredient : productsToBuy.keySet()) {
             if (inListIngredient.getName().toUpperCase()
                     .contains(ingredient.getName().toUpperCase())) {

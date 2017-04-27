@@ -74,8 +74,6 @@ public class RecipesBookFragment extends Fragment {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, final View view,
                                     final int position, final long l) {
-                recipesBookAdapter.getRecipes().get(position).toggleFavorite();
-                recipesBookAdapter.notifyDataSetChanged();
                 ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));
                 ((MainActivity) getActivity()).showFragment(new RecipeDetailedFragment());
             }

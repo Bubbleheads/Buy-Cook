@@ -1,9 +1,5 @@
 package bubbleheads.buy_cook;
 
-/**
- * Created by MARVIN on 27.04.2017.
- */
-
 public class Ingredient {
     private final String name;
     private final Measurement measurement;
@@ -20,5 +16,4 @@ public class Ingredient {
     public Measurement getMeasurement() {
         return measurement;
     }
-
 }

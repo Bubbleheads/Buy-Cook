@@ -10,13 +10,13 @@ public class MainActivity extends AppCompatActivity {
 
     private Recipe detailedRecipe;
     private Fragment currentFragment;
+    private static boolean activityPass;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showFragment(new TabLayoutFragment());
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void setDetailedRecipe(final Recipe recipe) {
@@ -33,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
         final FragmentManager supportFragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
-        fragmentTransaction.addToBackStack(null);
+        if (activityPass) {
+            fragmentTransaction.addToBackStack(null);
+        }
         fragmentTransaction.commit();
+        activityPass = true;
     }
 }

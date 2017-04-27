@@ -33,7 +33,7 @@ public class RecipeDetailedFragment extends Fragment {
         final FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.fab);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                recipeDescription.toggleFavorite();
+                RecipeList.getInstance().toggleFavoriteInList(recipeDescription);
                 Toast.makeText(getContext(), "Added to favorites", Toast.LENGTH_SHORT).show();
             }
         });
@@ -56,10 +56,12 @@ public class RecipeDetailedFragment extends Fragment {
                 intcountValue--;
 
                 txtCount.setText(String.valueOf(intcountValue));
+
             }
         });
         return view;
     }
+
 
     @Override
     public void onStop() {

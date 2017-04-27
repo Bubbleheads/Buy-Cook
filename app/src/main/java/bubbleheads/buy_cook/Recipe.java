@@ -1,5 +1,7 @@
 package bubbleheads.buy_cook;
 
+import java.util.Map;
+
 public class Recipe {
     private final String recipeName;
     private final String recipeDetail;
@@ -9,9 +11,11 @@ public class Recipe {
     private final String timeOfCooking;
     private final String difficultyOfCooking;
     private boolean favorite;
+    private final Map ingredientMap;
 
     public Recipe(final String name, final String detail, final int photo, final int categoryID,
-                  final String recipeHowToCook, final String timeOfCooking, final String difficultyOfCooking) {
+                  final String recipeHowToCook, final String timeOfCooking, final Map ingredientMap,
+                  final String difficultyOfCooking) {
         this.recipeName = name;
         this.recipeDetail = detail;
         this.recipeHowToCook = recipeHowToCook;
@@ -19,6 +23,7 @@ public class Recipe {
         this.difficultyOfCooking = difficultyOfCooking;
         this.timeOfCooking = timeOfCooking;
         this.categoryID = categoryID;
+        this.ingredientMap = ingredientMap;
     }
 
     public String getRecipeName() {
@@ -55,5 +60,9 @@ public class Recipe {
 
     public void toggleFavorite() {
         this.favorite = !this.favorite;
+    }
+
+    public Map getIngredientMap() {
+        return ingredientMap;
     }
 }

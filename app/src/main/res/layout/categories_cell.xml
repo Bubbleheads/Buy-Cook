@@ -18,10 +18,13 @@
         android:textSize="18sp" />
 
     <ImageView
+        android:id="@+id/arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:layout_weight="1"
+        android:focusable="false"
+        android:clickable="true"
         android:padding="8dp"
         android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
 </LinearLayout>

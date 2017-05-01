@@ -28,6 +28,7 @@ public class RecipeDetailedFragment extends Fragment {
         final View view = inflater.inflate(R.layout.detailed_recipe_fragment, container, false);
         recipeDescription = ((MainActivity) getActivity()).getDetailedRecipe();
         getActivity().setTitle(recipeDescription.getRecipeName());
+        portions = Basket.getInstance().getPortionQuantity(recipeDescription);
         final ImageView detailedRecipeImage = (ImageView) view.findViewById(R.id.detailed_recipe_image);
         detailedRecipeImage.setImageResource(recipeDescription.getRecipePhoto());
         final TextView recipeDetail = (TextView) view.findViewById(R.id.detailed_recipe_detail);
@@ -45,23 +46,18 @@ public class RecipeDetailedFragment extends Fragment {
             }
         });
         final TextView txtCount = (TextView) view.findViewById(R.id.couterValue);
+        txtCount.setText(String.valueOf(portions));
         final Button buttonClick = (Button) view.findViewById(R.id.plus_button);
         buttonClick.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String countValue = txtCount.getText().toString();
-                portions = Integer.parseInt(countValue);
                 portions++;
-
                 txtCount.setText(String.valueOf(portions));
             }
         });
         final Button buttonReset = (Button) view.findViewById(R.id.minus_button);
         buttonReset.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String countValue = txtCount.getText().toString();
-                portions = Integer.parseInt(countValue);
                 portions--;
-
                 txtCount.setText(String.valueOf(portions));
 
             }

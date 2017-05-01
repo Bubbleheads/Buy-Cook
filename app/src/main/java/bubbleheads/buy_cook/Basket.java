@@ -1,8 +1,8 @@
 package bubbleheads.buy_cook;
 
-import android.widget.Toast;
-
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Basket {
 
@@ -41,6 +41,17 @@ public class Basket {
             portionQuantity.put(recipe, multiplier);
             addProducts(products, multiplier);
         }
+        deleteEmpty();
+    }
+
+    private void deleteEmpty(){
+        Iterator<Map.Entry<Ingredient,Integer>> iter = productsToBuy.entrySet().iterator();
+        while (iter.hasNext()) {
+            Map.Entry<Ingredient,Integer> entry = iter.next();
+            if(entry.getValue() == 0){
+                iter.remove();
+            }
+        }
     }
 
     private boolean isRecipeInList(final Recipe recipe){
@@ -57,9 +68,9 @@ public class Basket {
             if (isPresent(ingredient)) {
                 final int currentQuantity = productsToBuy.get(ingredient);
                 productsToBuy.put(ingredient,
-                        currentQuantity + currentQuantity * multiplier);
+                        currentQuantity + products.get(ingredient) * multiplier);
             } else {
-                productsToBuy.put(ingredient, products.get(ingredient));
+                productsToBuy.put(ingredient, products.get(ingredient) * multiplier);
             }
         }
     }
@@ -69,7 +80,7 @@ public class Basket {
             if (isPresent(ingredient)) {
                 final int currentQuantity = productsToBuy.get(ingredient);
                 productsToBuy.put(ingredient,
-                        currentQuantity - currentQuantity * multiplier);
+                        currentQuantity - products.get(ingredient) * multiplier);
             }
         }
     }
@@ -81,6 +92,15 @@ public class Basket {
             }
         }
         return false;
+    }
+
+    public int getPortionQuantity(Recipe recipe){
+        for (Recipe listRecipe: portionQuantity.keySet()){
+            if (listRecipe.getRecipeName().equalsIgnoreCase(recipe.getRecipeName())){
+                return portionQuantity.get(listRecipe);
+            }
+        }
+        return 0;
     }
 
     public String show(){

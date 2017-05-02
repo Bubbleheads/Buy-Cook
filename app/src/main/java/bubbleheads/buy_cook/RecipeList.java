@@ -23,7 +23,8 @@ public class RecipeList {
     private final String Cookies = "Bake the kex for 5-7 minutes. " +
             "Take them out when they look puffy, are set around the edges, and dry to the touch.";
 
-    private final HashMap<Integer, String> emptyIngredients = new HashMap<Integer, String>();
+    private final HashMap<Ingredient, Integer> emptyIngredients = new HashMap<Ingredient, Integer>();
+
     private final ArrayList<Recipe> recipes = new ArrayList<Recipe> (){
         {
             add(new Recipe("Cocoa cocktail", "milk, cocoa, water", R.drawable.cocoacocktail, 7, CocoaCocatail, "10min",emptyIngredients,"1"));

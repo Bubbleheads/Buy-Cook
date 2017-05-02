@@ -4,9 +4,12 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#5df2d6</color>
     <color name="colorRed">#008e76</color>
-    <color name="colorWhite">#FFFFFF</color>
-    <color name="colorTransparentBlack">#57000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorTransparentBlack">#80000000</color>
     <color name="colorGreenBackground">#00bfa5</color>
+    <color name="colorBlack">#df000000</color>
     <color name="colorSomeWhiteBackground">#c9f7ef</color>
-    <color name="colorGrey">#d9d9d9</color>
+    <color name="colorGrey">#cbcbcb</color>
+    <color name="colorForText">#414141</color>
+    <color name="colorForBackground">#fcfcfc</color>
 </resources>

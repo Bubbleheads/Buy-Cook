@@ -1,7 +1,6 @@
 package bubbleheads.buy_cook;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

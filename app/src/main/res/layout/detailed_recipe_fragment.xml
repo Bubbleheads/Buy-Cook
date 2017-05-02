@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorForBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorForBackground">
 
         <ImageView
             android:id="@+id/detailed_recipe_image"
@@ -18,35 +21,26 @@
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/ingredients_required"
+            android:id="@+id/numb_of_recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ingredients_required"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"
+            android:layout_alignStart="@+id/howcook"
             android:layout_below="@+id/detailed_recipe_image"
-            android:layout_alignStart="@+id/howcook" />
-
-        <TextView
-            android:id="@+id/detailed_recipe_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorTransparentBlack"
-            android:layout_marginEnd="8dp"
-            android:layout_margin="4dp"
-            android:textSize="14sp"
-            android:layout_below="@+id/ingredients_required"
-            android:layout_centerHorizontal="true" />
+            android:layout_marginTop="16dp"
+            android:paddingLeft="16dp"
+            android:text="@string/chosen_recipes"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/howcook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/detailed_recipe_detail"
+            android:layout_below="@id/numb_of_recipe"
             android:layout_margin="4dp"
+            android:paddingLeft="16dp"
             android:text="@string/how_to_cook"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorBlack"
             android:textSize="16sp" />
 
         <TextView
@@ -55,49 +49,91 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/howcook"
             android:layout_marginEnd="8dp"
-            android:textSize="14sp"
             android:layout_marginStart="4dp"
-            android:textColor="@color/colorTransparentBlack" />
+            android:paddingLeft="16dp"
+            android:textColor="@color/colorForText"
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/numb_of_recipe"
+            android:id="@+id/ingredients_required"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/how_to_cook"
             android:layout_margin="4dp"
-            android:text="@string/chosen_recipes"
-            android:textColor="@android:color/black"
+            android:paddingLeft="16dp"
+            android:text="@string/ingredients_required"
+            android:textColor="@color/colorBlack"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/detailed_recipe_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ingredients_required"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:layout_marginEnd="8dp"
+            android:paddingLeft="16dp"
+            android:textColor="@color/colorForText"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/plus_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/numb_of_recipe"
+            android:layout_alignBottom="@+id/numb_of_recipe"
             android:layout_alignEnd="@+id/how_to_cook"
-            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:onClick="countDE"
             android:backgroundTint="@color/colorAccent"
             android:clickable="true"
-            android:textSize="14sp"
             android:text="@string/plus_button"
+            android:textSize="14sp"
             tools:text="+" />
 
         <Button
             android:id="@+id/minus_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:backgroundTint="@color/colorAccent"
-            android:clickable="true"
-            android:textSize="14sp"
-            tools:text="-"
-            android:text="@string/minus_button"
-            android:layout_marginEnd="19dp"
             android:layout_alignBaseline="@+id/numb_of_recipe"
             android:layout_alignBottom="@+id/numb_of_recipe"
-            android:layout_toStartOf="@+id/plus_button" />
+            android:layout_marginEnd="22dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_toStartOf="@+id/plus_button"
+            android:backgroundTint="@color/colorAccent"
+            android:clickable="true"
+            android:onClick="countIN"
+            android:text="@string/minus_button"
+            android:textSize="14sp"
+            tools:text="-" />
+
+        <TextView
+            android:id="@+id/portion_quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/numb_of_recipe"
+            android:layout_alignBottom="@+id/numb_of_recipe"
+            android:layout_alignStart="@+id/minus_button"
+            android:layout_marginStart="42dp"
+            android:layout_toStartOf="@+id/plus_button"
+            android:text="0"
+            android:textAlignment="center" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/favorite_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/plus_button"
+            android:layout_alignTop="@+id/ingredients_required"
+            android:onClick="toggleButton"
+            android:src="@drawable/ic_like"
+            android:textOff="white"
+            android:textOn="red"
+            app:elevation="5dp" />
 
     </RelativeLayout>
 </ScrollView>

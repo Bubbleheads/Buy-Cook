@@ -36,27 +36,27 @@ public class RecipeDetailedFragment extends Fragment {
         setHasOptionsMenu(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
-        final FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.fab);
-        button.setOnClickListener(new View.OnClickListener() {
+        final FloatingActionButton favoriteButton = (FloatingActionButton) view.findViewById(R.id.favorite_button);
+        favoriteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 RecipeList.getInstance().toggleFavoriteInList(recipeDescription);
                 Toast.makeText(getContext(), "Added to favorites", Toast.LENGTH_SHORT).show();
             }
         });
-        final TextView txtCount = (TextView) view.findViewById(R.id.couterValue);
-        txtCount.setText(String.valueOf(portions));
-        final Button buttonClick = (Button) view.findViewById(R.id.plus_button);
-        buttonClick.setOnClickListener(new View.OnClickListener() {
+        final TextView portionQuantity = (TextView) view.findViewById(R.id.portion_quantity);
+        portionQuantity.setText(String.valueOf(portions));
+        final Button addPortion = (Button) view.findViewById(R.id.plus_button);
+        addPortion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 portions++;
-                txtCount.setText(String.valueOf(portions));
+                portionQuantity.setText(String.valueOf(portions));
             }
         });
-        final Button buttonReset = (Button) view.findViewById(R.id.minus_button);
-        buttonReset.setOnClickListener(new View.OnClickListener() {
+        final Button subtractPortion = (Button) view.findViewById(R.id.minus_button);
+        subtractPortion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 portions--;
-                txtCount.setText(String.valueOf(portions));
+                portionQuantity.setText(String.valueOf(portions));
 
             }
         });

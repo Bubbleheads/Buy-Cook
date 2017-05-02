@@ -6,9 +6,12 @@ public class CategoryList {
 
     private static final CategoryList INSTANCE = new CategoryList();
 
-    public static CategoryList getInstance() {return INSTANCE;}
+    public static CategoryList getInstance() {
+        return INSTANCE;
+    }
 
-    private CategoryList(){}
+    private CategoryList() {
+    }
 
     private final ArrayList<Category> CATEGORY_LIST
             = new ArrayList<Category>() {

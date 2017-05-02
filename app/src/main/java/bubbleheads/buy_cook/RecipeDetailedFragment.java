@@ -1,11 +1,9 @@
 package bubbleheads.buy_cook;
 
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -77,6 +75,9 @@ public class RecipeDetailedFragment extends Fragment {
         switch (item.getItemId()) {
             case android.R.id.home:
                 getActivity().onBackPressed();
+                Basket.getInstance().processProducts(recipeDescription
+                        , recipeDescription.getIngredientMap()
+                        , portions);
                 return true;
         }
         return super.onOptionsItemSelected(item);

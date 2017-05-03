@@ -3,6 +3,7 @@ package bubbleheads.buy_cook;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -72,10 +73,9 @@ public class RecipeDetailedFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.recipe_fragment, menu);
-        menu.findItem(R.id.favorite_button).setIcon
-                (recipeDescription.getFavorite()? R.drawable.ic_like: R.drawable.ic_dot);
+        menu.findItem(R.id.favorite_button)
+                .setIcon(recipeDescription.getFavorite()? R.drawable.ic_favorite_checked: R.drawable.ic_favorite_unchecked);
     }
-
 
     @Override
     public void onStop() {
@@ -94,6 +94,7 @@ public class RecipeDetailedFragment extends Fragment {
                 return true;
             case R.id.favorite_button:
                 RecipeList.getInstance().toggleFavoriteInList(recipeDescription);
+                item.setIcon(recipeDescription.getFavorite()? R.drawable.ic_favorite_checked: R.drawable.ic_favorite_unchecked);
         }
         return super.onOptionsItemSelected(item);
     }

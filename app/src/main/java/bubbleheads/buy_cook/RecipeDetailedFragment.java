@@ -67,6 +67,9 @@ public class RecipeDetailedFragment extends Fragment {
     @Override
     public void onStop() {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        Basket.getInstance().processProducts(recipeDescription
+                , recipeDescription.getIngredientMap()
+                , portions);
         super.onStop();
     }
 
@@ -75,9 +78,6 @@ public class RecipeDetailedFragment extends Fragment {
         switch (item.getItemId()) {
             case android.R.id.home:
                 getActivity().onBackPressed();
-                Basket.getInstance().processProducts(recipeDescription
-                        , recipeDescription.getIngredientMap()
-                        , portions);
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -15,9 +15,9 @@ public class Basket {
     private Basket() {
     }
 
-    private HashMap<Ingredient, Integer> productsToBuy = new HashMap<>();
+    private Map<Ingredient, Integer> productsToBuy = new HashMap<>();
 
-    public HashMap<Ingredient, Integer> getProductsToBuy() {
+    public Map<Ingredient, Integer> getProductsToBuy() {
         return productsToBuy;
     }
 

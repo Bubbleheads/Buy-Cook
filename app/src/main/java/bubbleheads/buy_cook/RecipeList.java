@@ -24,12 +24,24 @@ public class RecipeList {
             "Take them out when they look puffy, are set around the edges, and dry to the touch.";
 
     private final HashMap<Ingredient, Integer> emptyIngredients = new HashMap<Ingredient, Integer>();
+    private final HashMap<Ingredient, Integer> test1 = new HashMap<Ingredient, Integer>(){
+        {
+            put(new Ingredient("banana", Measurement.AMOUNT), 2);
+            put(new Ingredient("chocolate", Measurement.GRAM), 200);
+        }
+    };
+    private final HashMap<Ingredient, Integer> test2 = new HashMap<Ingredient, Integer>(){
+        {
+            put(new Ingredient("banana", Measurement.GRAM), 400);
+            put(new Ingredient("chocolate", Measurement.TABLESPOON), 700);
+        }
+    };
 
     private final ArrayList<Recipe> recipes = new ArrayList<Recipe> (){
         {
             add(new Recipe("Cocoa cocktail", "milk, cocoa, water", R.drawable.cocoacocktail, 7, CocoaCocatail, "10min",emptyIngredients,"1"));
-            add(new Recipe("Cookie", "mint, flour,sugar", R.drawable.pyrig, 9, Cookie, "2hours",emptyIngredients,"4"));
-            add(new Recipe("Sweets", "berries,sugar,flour,fat", R.drawable.kex, 9, Kex, "50min", emptyIngredients,"3"));
+            add(new Recipe("Cookie", "mint, flour,sugar", R.drawable.pyrig, 9, Cookie, "2hours",test1,"4"));
+            add(new Recipe("Sweets", "berries,sugar,flour,fat", R.drawable.kex, 9, Kex, "50min", test2,"3"));
             add(new Recipe("Coffee", "chocolade, coffee, sugar", R.drawable.coffee, 7, Coffee,"10min",emptyIngredients,"1"));
             add(new Recipe("Dumplings", "sugar,fat,flour,berries", R.drawable.pampukh, 5, TastyFood,"3hours",emptyIngredients,"2"));
             add(new Recipe("Cookies with jam", "sugar,flour,jam,butter,jam", R.drawable.pechenko, 9, Cookies,"1hour",emptyIngredients,"3"));

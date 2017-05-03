@@ -65,7 +65,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="16sp" />
 
-        <TextView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/detailed_recipe_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

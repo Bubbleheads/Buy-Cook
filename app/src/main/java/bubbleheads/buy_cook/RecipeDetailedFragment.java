@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,8 +31,13 @@ public class RecipeDetailedFragment extends Fragment {
         portions = Basket.getInstance().getPortionQuantity(recipeDescription);
         final ImageView detailedRecipeImage = (ImageView) view.findViewById(R.id.detailed_recipe_image);
         detailedRecipeImage.setImageResource(recipeDescription.getRecipePhoto());
-        final TextView recipeDetail = (TextView) view.findViewById(R.id.detailed_recipe_detail);
-        recipeDetail.setText(recipeDescription.getRecipeDetail());
+        final RecyclerView recipeDetail = (RecyclerView) view.findViewById(R.id.detailed_recipe_detail);
+        final RecipeDetailedProductsAdapter recipeDetailAdapter
+                = new RecipeDetailedProductsAdapter(this, recipeDescription);
+        recipeDetail.setLayoutManager(new LinearLayoutManager(getContext(),
+                LinearLayoutManager.VERTICAL, false));
+        recipeDetail.setAdapter(recipeDetailAdapter);
+        recipeDetailAdapter.notifyDataSetChanged();
         final TextView detailedRecipes = (TextView) view.findViewById(R.id.how_to_cook);
         detailedRecipes.setText(recipeDescription.getRecipeHowToCook());
         setHasOptionsMenu(true);

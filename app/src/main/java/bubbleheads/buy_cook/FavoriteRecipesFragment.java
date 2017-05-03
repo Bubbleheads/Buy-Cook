@@ -47,9 +47,6 @@ public class FavoriteRecipesFragment extends Fragment {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, final View view,
                                     final int position, final long l) {
-                Toast.makeText(view.getContext(),
-                        recipesBookAdapter.getRecipes().get(position).getRecipeName(),
-                        Toast.LENGTH_SHORT).show();
                 recipesBookAdapter.notifyDataSetChanged();
                 ((MainActivity) getActivity()).setDetailedRecipe(recipesBookAdapter.getRecipes().get(position));
                 ((MainActivity) getActivity()).showFragment(new RecipeDetailedFragment());

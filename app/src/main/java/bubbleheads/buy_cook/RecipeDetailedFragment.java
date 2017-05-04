@@ -7,6 +7,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,7 +34,8 @@ public class RecipeDetailedFragment extends Fragment {
         getActivity().setTitle(recipeDescription.getRecipeName());
 
         setHasOptionsMenu(true);
-
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
 
         portions = Basket.getInstance().getPortionQuantity(recipeDescription);
         final ImageView detailedRecipeImage = (ImageView) view.findViewById(R.id.detailed_recipe_image);
@@ -47,9 +49,6 @@ public class RecipeDetailedFragment extends Fragment {
         recipeDetailAdapter.notifyDataSetChanged();
         final TextView detailedRecipes = (TextView) view.findViewById(R.id.how_to_cook);
         detailedRecipes.setText(recipeDescription.getRecipeHowToCook());
-        setHasOptionsMenu(true);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         final TextView portionQuantity = (TextView) view.findViewById(R.id.portion_quantity);
         portionQuantity.setText(String.valueOf(portions));
         final Button addPortion = (Button) view.findViewById(R.id.plus_button);
@@ -62,7 +61,9 @@ public class RecipeDetailedFragment extends Fragment {
         final Button subtractPortion = (Button) view.findViewById(R.id.minus_button);
         subtractPortion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                portions--;
+                if (portions > 0) {
+                    portions--;
+                }
                 portionQuantity.setText(String.valueOf(portions));
 
             }

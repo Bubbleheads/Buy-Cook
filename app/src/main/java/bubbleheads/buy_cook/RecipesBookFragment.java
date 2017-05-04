@@ -1,11 +1,15 @@
 package bubbleheads.buy_cook;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +31,6 @@ public class RecipesBookFragment extends Fragment {
         recipes = filterRecipes(chosenCategoryID);
         getActivity().setTitle(CategoryList.getInstance().getCategory(chosenCategoryID).getName());
         setUpCollection(view);
-        setUpSearching(view);
         setHasOptionsMenu(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return view;
@@ -77,11 +80,15 @@ public class RecipesBookFragment extends Fragment {
         });
     }
 
-    private void setUpSearching(final View view) {
-        final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
-        findRecipe.setQueryHint("Type something...");
-        findRecipe.clearFocus();
-        findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search_menu, menu);
+        MenuItem searchMenuItem = menu.findItem(R.id.search);
+        System.out.println(searchMenuItem.isActionViewExpanded());
+        SearchView searchView = (SearchView) searchMenuItem.getActionView();
+
+        searchView.setSubmitButtonEnabled(true);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {
                 return false;

@@ -5,19 +5,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.SearchView
-        android:id="@+id/searchRecipe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:iconifiedByDefault="false"
-        android:textColor="@color/colorPrimaryDark"
-        android:queryHint="Search Recipe" />
-
     <GridView
         android:id="@+id/collection_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/searchRecipe"
         android:gravity="center"
         android:horizontalSpacing="8dp"
         android:numColumns="2"

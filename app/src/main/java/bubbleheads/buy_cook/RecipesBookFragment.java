@@ -7,6 +7,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,6 +32,8 @@ public class RecipesBookFragment extends Fragment {
         recipes = filterRecipes(chosenCategoryID);
         getActivity().setTitle(CategoryList.getInstance().getCategory(chosenCategoryID).getName());
         setUpCollection(view);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return view;
@@ -86,8 +89,6 @@ public class RecipesBookFragment extends Fragment {
         MenuItem searchMenuItem = menu.findItem(R.id.search);
         System.out.println(searchMenuItem.isActionViewExpanded());
         SearchView searchView = (SearchView) searchMenuItem.getActionView();
-
-        searchView.setSubmitButtonEnabled(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {

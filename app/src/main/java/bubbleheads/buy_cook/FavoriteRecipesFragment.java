@@ -3,6 +3,7 @@ package bubbleheads.buy_cook;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +28,8 @@ public class FavoriteRecipesFragment extends Fragment {
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.favorite_recipes_fragment, container, false);
         recipes = filterRecipes();
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
         getActivity().setTitle("Favorite recipes");
         setUpCollection(view);
         setHasOptionsMenu(true);

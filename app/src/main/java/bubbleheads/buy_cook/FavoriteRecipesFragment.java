@@ -3,7 +3,11 @@ package bubbleheads.buy_cook;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -24,8 +28,11 @@ public class FavoriteRecipesFragment extends Fragment {
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.favorite_recipes_fragment, container, false);
         recipes = filterRecipes();
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+        getActivity().setTitle("Favorite recipes");
         setUpCollection(view);
-        setUpSearching(view);
+        setHasOptionsMenu(true);
         return view;
     }
 
@@ -54,9 +61,15 @@ public class FavoriteRecipesFragment extends Fragment {
         });
     }
 
-    private void setUpSearching(final View view) {
-        final SearchView findRecipe = (SearchView) view.findViewById(R.id.searchRecipe);
-        findRecipe.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search_menu, menu);
+        MenuItem searchMenuItem = menu.findItem(R.id.search);
+        System.out.println(searchMenuItem.isActionViewExpanded());
+        SearchView searchView = (SearchView) searchMenuItem.getActionView();
+
+        searchView.setSubmitButtonEnabled(true);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {
                 return false;

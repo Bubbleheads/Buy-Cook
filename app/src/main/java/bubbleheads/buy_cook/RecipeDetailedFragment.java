@@ -1,6 +1,7 @@
 package bubbleheads.buy_cook;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -33,13 +34,21 @@ public class RecipeDetailedFragment extends Fragment {
         recipeDescription = ((MainActivity) getActivity()).getDetailedRecipe();
         getActivity().setTitle(recipeDescription.getRecipeName());
 
+        CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.collapsing_toolbar);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+        toolbarLayout.setTitle(recipeDescription.getRecipeName());
+        toolbarLayout.setBackgroundResource(recipeDescription.getRecipePhoto());
+        toolbarLayout.setCollapsedTitleTextAppearance(R.style.collapsedappbar);
+        toolbarLayout.setExpandedTitleTextAppearance(R.style.expandedappbar);
+
         setHasOptionsMenu(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
 
         portions = Basket.getInstance().getPortionQuantity(recipeDescription);
-        final ImageView detailedRecipeImage = (ImageView) view.findViewById(R.id.detailed_recipe_image);
-        detailedRecipeImage.setImageResource(recipeDescription.getRecipePhoto());
+        //final ImageView detailedRecipeImage = (ImageView) view.findViewById(R.id.detailed_recipe_image);
+        //detailedRecipeImage.setImageResource(recipeDescription.getRecipePhoto());
         final RecyclerView recipeDetail = (RecyclerView) view.findViewById(R.id.detailed_recipe_detail);
         final RecipeDetailedProductsAdapter recipeDetailAdapter
                 = new RecipeDetailedProductsAdapter(this, recipeDescription);

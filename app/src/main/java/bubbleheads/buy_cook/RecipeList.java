@@ -23,6 +23,15 @@ public class RecipeList {
             " and water until well blended. Transfer to the pot. Add the raw garlic to the soup, cover and turn off the heat. " +
             "Let stand for 5 minutes. Taste, and season with salt, pepper and sugar.\n" +
             "Ladle into serving bowls, and garnish with sour cream, if desired, and fresh parsley.";
+    private final String roast_chicken_how_to_cook = "Preheat oven to 375 degrees F (190 degrees C). " +
+            "Lightly grease a medium baking dish.\n" +
+            "Pierce lemons several times with a fork, and place 1 inside each chicken cavity. Arrange" +
+            " chickens in the center of the prepared baking dish. Place onions, shallots, and garlic " +
+            "around the chickens. Sprinkle vegetables with olive oil, and season with salt and pepper." +
+            " Spread butter over the chickens, and line each with thyme sprigs.\n" +
+            "Bake 20 minutes in the preheated oven. Increase temperature to 400 degrees F (200 degrees C)," +
+            " and continue baking 30 minutes, or until exterior of chicken is golden brown, meat is no longer " +
+            "pink, and juices run clear. Allow to cool about 15 minutes before serving.";
     private final String cream_soup = "Preheat an oven to 375 degrees F (190 degrees C). Line a rimmed baking sheet with parchment paper.\n" +
             "Cut squash in half lengthwise; discard seeds and membrane. Place squash halves, cut sides down, on the prepared baking sheet." +
             " Roast in preheated oven until very soft, about 45 minutes. Scoop the pulp from the peel, and reserve.\n" +
@@ -83,6 +92,19 @@ public class RecipeList {
             put(new Ingredient("White sugar", Measurement.TEASPOON), 1);
             put(new Ingredient("Onion", Measurement.AMOUNT), 1);
             put(new Ingredient("Tomato paste", Measurement.TABLESPOON), 6);
+        }
+    };
+    private final HashMap<Ingredient, Integer> chicken_ingredients = new HashMap<Ingredient, Integer>() {
+        {
+            put(new Ingredient("Lemon", Measurement.AMOUNT), 2);
+            put(new Ingredient("Chicken", Measurement.AMOUNT), 1);
+            put(new Ingredient("Onion", Measurement.AMOUNT), 2);
+            put(new Ingredient("Shallots", Measurement.AMOUNT), 6);
+            put(new Ingredient("Garlic", Measurement.AMOUNT), 8);
+            put(new Ingredient("Olive oil", Measurement.TABLESPOON), 3);
+            put(new Ingredient("Salt", Measurement.TEASPOON), 1);
+            put(new Ingredient("Butter", Measurement.TEASPOON), 5);
+            put(new Ingredient("Thyme", Measurement.AMOUNT), 6);
         }
     };
     private final HashMap<Ingredient, Integer> soup = new HashMap<Ingredient, Integer>() {
@@ -153,6 +175,7 @@ public class RecipeList {
             add(new Recipe("Curry soup", "curry,salt", R.drawable.cream_soup, 1, cream_soup, "1.5hours", soup, "3"));
             add(new Recipe("Ukrainian red borscht", "tasty", R.drawable.borschtsh, 1, borshtsh, "1 hour", borshtch, "2"));
             add(new Recipe("Mushroom soup", "cream", R.drawable.mushroom_soup, 1, mushroom, "1 hour", mushroom_soup, "3"));
+            add(new Recipe("Chicken", "chicken", R.drawable.chicken,3,roast_chicken_how_to_cook,"1.5h",chicken_ingredients,"5"));
             add(new Recipe("Beef steak", "steak", R.drawable.beef_recipe, 3, beef_steak_how_to_cook,"45min",beef_steak_ingredients,"4"));
             add(new Recipe("Pizza Margarita", "pizza", R.drawable.margarita, 2, margarita_how_to_cook, "20min", pizza_margarita, "3"));
             add(new Recipe("Pizza with pepperoni", "pizza", R.drawable.pepperoni_pizza, 2, pizza_how_to_cook, "30min", pizza, "1"));

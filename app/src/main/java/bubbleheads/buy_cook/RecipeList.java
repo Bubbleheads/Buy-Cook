@@ -60,6 +60,17 @@ public class RecipeList {
             "pink in the center, about 1 hour. An instant-read thermometer inserted into the center should read " +
             "145 degrees F (63 degrees C). Remove roast to a platter. Heat the wine in the pan and stir to loosen " +
             "browned bits of food on the bottom. Serve with pan juices.";
+    private final String beef_steak_how_to_cook = "Season steak generously with salt and black pepper on both sides.\n" +
+            "Place wood chips in the smoker box of your gas grill according to manufacturer's instructions.\n" +
+            "Preheat one side of the grill to about 250 degrees F (121 degrees C).\n" +
+            "Place steak on the cool side of the grill. Cook until an instant-read thermometer inserted " +
+            "into the center reads about 100 degrees F (37 degrees C), 25 to 30 minutes." +
+            " Transfer steak to a plate. Brush with olive oil and cover with aluminum foil.\n" +
+            "Increase heat on the grill to 600 degrees F (315 degrees C) by turning both" +
+            " burners up to maximum.\n" +
+            "Cook steak until crust forms and an instant-read thermometer inserted into the " +
+            "center reads 125 degrees F (52 degrees C), about 3 minutes per side. Transfer steak " +
+            "back to plate. Cover with aluminum foil and let rest before serving, about 5 minutes.";
     private final HashMap<Ingredient, Integer> borshtch = new HashMap<Ingredient, Integer>() {
         {
             put(new Ingredient("Pork", Measurement.GRAM), 500);
@@ -93,6 +104,15 @@ public class RecipeList {
             put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
             put(new Ingredient("Butter", Measurement.TABLESPOON), 2);
             put(new Ingredient("Tomatoes", Measurement.AMOUNT), 2);
+            put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
+        }
+    };
+    private final HashMap<Ingredient, Integer> beef_steak_ingredients = new HashMap<Ingredient, Integer>() {
+        {
+            put(new Ingredient("Steak", Measurement.AMOUNT), 2);
+            put(new Ingredient("Salt", Measurement.TEASPOON), 1);
+            put(new Ingredient("Black pepper", Measurement.GRAM), 3);
+            put(new Ingredient("Olive oil", Measurement.TEASPOON), 8);
             put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
         }
     };
@@ -133,6 +153,7 @@ public class RecipeList {
             add(new Recipe("Curry soup", "curry,salt", R.drawable.cream_soup, 1, cream_soup, "1.5hours", soup, "3"));
             add(new Recipe("Ukrainian red borscht", "tasty", R.drawable.borschtsh, 1, borshtsh, "1 hour", borshtch, "2"));
             add(new Recipe("Mushroom soup", "cream", R.drawable.mushroom_soup, 1, mushroom, "1 hour", mushroom_soup, "3"));
+            add(new Recipe("Beef steak", "steak", R.drawable.beef_recipe, 3, beef_steak_how_to_cook,"45min",beef_steak_ingredients,"4"));
             add(new Recipe("Pizza Margarita", "pizza", R.drawable.margarita, 2, margarita_how_to_cook, "20min", pizza_margarita, "3"));
             add(new Recipe("Pizza with pepperoni", "pizza", R.drawable.pepperoni_pizza, 2, pizza_how_to_cook, "30min", pizza, "1"));
             add(new Recipe("Roasted pork", "pork", R.drawable.pork, 3, roasted_pork_how_to_cook, "2hours", roasted_pork_ingredients, "2"));

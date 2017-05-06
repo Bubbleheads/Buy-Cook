@@ -37,6 +37,13 @@ public class RecipeList {
             "Blend in 2 T. flour and stir.\n" +
             "Add in the chicken broth and heat until slightly thickened while stirring frequently.\n" +
             "Stir cream with additional 1 T. flour and seasonings. Add in cream to soup. Heat to thicken while stirring frequently.";
+    private final String pizza_how_to_cook = "Preheat oven to 450 degrees F (230 degrees C)." +
+            " In a medium bowl, dissolve yeast and sugar in warm water. Let stand until creamy, about 10 minutes.\n" +
+            "Stir in flour, salt and oil. Beat until smooth. Let rest for 5 minutes.\n" +
+            "Turn dough out onto a lightly floured surface and pat or roll into a round. " +
+            "Transfer crust to a lightly greased pizza pan or baker's peel dusted with cornmeal." +
+            " Spread with desired toppings and bake in preheated oven for 15 to 20 minutes, or until golden brown. " +
+            "Let baked pizza cool for 5 minutes before serving.";
     private final HashMap<Ingredient, Integer> borshtch = new HashMap<Ingredient, Integer>() {
         {
             put(new Ingredient("Pork", Measurement.GRAM), 500);
@@ -73,11 +80,22 @@ public class RecipeList {
             put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
         }
     };
+
+    private final HashMap<Ingredient, Integer> pizza = new HashMap<Ingredient, Integer>() {
+        {
+            put(new Ingredient("Dry yeast", Measurement.AMOUNT), 1);
+            put(new Ingredient("White sugar", Measurement.TEASPOON), 1);
+            put(new Ingredient("Bread flour", Measurement.TABLESPOON), 12);
+            put(new Ingredient("Olive oil", Measurement.TABLESPOON), 2);
+            put(new Ingredient("Salt", Measurement.TEASPOON), 1);
+        }
+    };
     private final ArrayList<Recipe> recipes = new ArrayList<Recipe>() {
         {
             add(new Recipe("Curry soup", "curry,salt", R.drawable.cream_soup, 1, cream_soup, "1.5hours", soup, "3"));
             add(new Recipe("Ukrainian red borscht", "tasty", R.drawable.borschtsh, 1, borshtsh, "1 hour", borshtch, "2"));
             add(new Recipe("Mushroom soup", "cream", R.drawable.mushroom_soup, 1, mushroom, "1 hour", mushroom_soup, "3"));
+            add(new Recipe("Pizza with pepperoni","pizza", R.drawable.pepperoni_pizza, 2, pizza_how_to_cook, "30min", pizza, "1"));
         }
     };
 

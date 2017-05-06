@@ -7,44 +7,77 @@ public class RecipeList {
 
     private static final RecipeList INSTANCE = new RecipeList();
 
-    public static RecipeList getInstance() {return INSTANCE;}
+    public static RecipeList getInstance() {
+        return INSTANCE;
+    }
 
-    private RecipeList(){}
+    private RecipeList() {
+    }
 
-
-    private final String CocoaCocatail = "Mix 2 tablespoons of cocoa with a glass of milk.";
-    private final String Cookie = "Bake the cookies for 9-11 minutes." +
-            " Take them out when they look puffy, are set around the edges, and dry to the touch.";
-    private final String Kex = "Bake the kex for 5-7 minutes. " +
-            "Take them out when they look puffy, are set around the edges, and dry to the touch.";
-    private final String Coffee = "Mix 2 tablespoons of coffee with a glass of milk, sprinkle with chocolate.";
-    private final String TastyFood = ": Tear off a large piece of parchment paper roughly 12 inches wide." +
-            " Use your hands or a rolling pin to flatten the dough until it is 1/4-inch thick or less.";
-    private final String Cookies = "Bake the kex for 5-7 minutes. " +
-            "Take them out when they look puffy, are set around the edges, and dry to the touch.";
-
-    private final HashMap<Ingredient, Integer> emptyIngredients = new HashMap<Ingredient, Integer>();
-    private final HashMap<Ingredient, Integer> test1 = new HashMap<Ingredient, Integer>(){
+    private final String borshtsh = "Crumble the sausage (if using) into a skillet over medium-high heat. " +
+            "Cook and stir until no longer pink. Remove from the heat and set aside.\n" +
+            "Fill a large pot halfway with water(about 2 quarts), and bring to a boil. Add the sausage, and cover the pot." +
+            " Return to a boil. Add the beets, and cook until they have lost their color. Add the carrots and potatoes," +
+            " and cook until tender, about 15 minutes. Add the cabbage, and the can of diced tomatoes.\n" +
+            "Heat the oil in a skillet over medium heat. Add the onion, and cook until tender. Stir in the tomato paste" +
+            " and water until well blended. Transfer to the pot. Add the raw garlic to the soup, cover and turn off the heat. " +
+            "Let stand for 5 minutes. Taste, and season with salt, pepper and sugar.\n" +
+            "Ladle into serving bowls, and garnish with sour cream, if desired, and fresh parsley.";
+    private final String cream_soup = "Preheat an oven to 375 degrees F (190 degrees C). Line a rimmed baking sheet with parchment paper.\n" +
+            "Cut squash in half lengthwise; discard seeds and membrane. Place squash halves, cut sides down, on the prepared baking sheet." +
+            " Roast in preheated oven until very soft, about 45 minutes. Scoop the pulp from the peel, and reserve.\n" +
+            "Melt butter in a large soup pot over medium heat. Stir in the onion, garlic, ginger, curry powder, and salt." +
+            " Cook and stir until the onion is soft, about 10 minutes. Pour the chicken broth into the pot, and bring to a boil." +
+            " Stir in the pears and the reserved squash, and simmer until the pears are very soft, about 30 minutes.\n" +
+            "Pour the soup into a blender, filling the pitcher no more than halfway full. Hold down the lid of the blender" +
+            " with a folded kitchen towel, and carefully start the blender. Puree in batches until smooth. Return the soup to the pot," +
+            " stir in the half and half, and reheat.";
+    private final String mushroom = "Cut the mushrooms into slices.\n" +
+            "Melt butter in large frying pan. Add in onions, garlic, and mushrooms. Cook until onions are soft.\n" +
+            "Blend in 2 T. flour and stir.\n" +
+            "Add in the chicken broth and heat until slightly thickened while stirring frequently.\n" +
+            "Stir cream with additional 1 T. flour and seasonings. Add in cream to soup. Heat to thicken while stirring frequently.";
+    private final HashMap<Ingredient, Integer> borshtch = new HashMap<Ingredient, Integer>() {
         {
-            put(new Ingredient("banana", Measurement.AMOUNT), 2);
-            put(new Ingredient("chocolate", Measurement.GRAM), 200);
+            put(new Ingredient("Pork", Measurement.GRAM), 500);
+            put(new Ingredient("Carrot", Measurement.AMOUNT), 3);
+            put(new Ingredient("Baking potatoes", Measurement.AMOUNT), 3);
+            put(new Ingredient("Vegetable oil", Measurement.TABLESPOON), 1);
+            put(new Ingredient("Cabbage", Measurement.AMOUNT), 1);
+            put(new Ingredient("Tomatoes", Measurement.AMOUNT), 2);
+            put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
+            put(new Ingredient("White sugar", Measurement.TEASPOON), 1);
+            put(new Ingredient("Onion", Measurement.AMOUNT), 1);
+            put(new Ingredient("Tomato paste", Measurement.TABLESPOON), 6);
         }
     };
-    private final HashMap<Ingredient, Integer> test2 = new HashMap<Ingredient, Integer>(){
+    private final HashMap<Ingredient, Integer> soup = new HashMap<Ingredient, Integer>() {
         {
-            put(new Ingredient("banana", Measurement.GRAM), 400);
-            put(new Ingredient("chocolate", Measurement.TABLESPOON), 700);
+            put(new Ingredient("squash", Measurement.TABLESPOON), 1);
+            put(new Ingredient("squash", Measurement.TABLESPOON), 1);
+            put(new Ingredient("unsalted butter", Measurement.TABLESPOON), 3);
+            put(new Ingredient("onion", Measurement.AMOUNT), 1);
+            put(new Ingredient("garlic", Measurement.AMOUNT), 2);
+            put(new Ingredient("ginger", Measurement.TABLESPOON), 2);
+            put(new Ingredient("squash", Measurement.TABLESPOON), 1);
+            put(new Ingredient("curry powder", Measurement.TEASPOON), 1);
         }
     };
-
-    private final ArrayList<Recipe> recipes = new ArrayList<Recipe> (){
+    private final HashMap<Ingredient, Integer> mushroom_soup = new HashMap<Ingredient, Integer>() {
         {
-            add(new Recipe("Cocoa cocktail", "milk, cocoa, water", R.drawable.cocoacocktail, 7, CocoaCocatail, "10min",emptyIngredients,"1"));
-            add(new Recipe("Cookie", "mint, flour,sugar", R.drawable.pyrig, 9, Cookie, "2hours",test1,"4"));
-            add(new Recipe("Sweets", "berries,sugar,flour,fat", R.drawable.kex, 9, Kex, "50min", test2,"3"));
-            add(new Recipe("Coffee", "chocolade, coffee, sugar", R.drawable.coffee, 7, Coffee,"10min",emptyIngredients,"1"));
-            add(new Recipe("Dumplings", "sugar,fat,flour,berries", R.drawable.pampukh, 5, TastyFood,"3hours",emptyIngredients,"2"));
-            add(new Recipe("Cookies with jam", "sugar,flour,jam,butter,jam", R.drawable.pechenko, 9, Cookies,"1hour",emptyIngredients,"3"));
+            put(new Ingredient("Fresh mushrooms", Measurement.AMOUNT), 12);
+            put(new Ingredient("Onion", Measurement.TABLESPOON), 2);
+            put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
+            put(new Ingredient("Butter", Measurement.TABLESPOON), 2);
+            put(new Ingredient("Tomatoes", Measurement.AMOUNT), 2);
+            put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
+        }
+    };
+    private final ArrayList<Recipe> recipes = new ArrayList<Recipe>() {
+        {
+            add(new Recipe("Curry soup", "curry,salt", R.drawable.cream_soup, 1, cream_soup, "1.5hours", soup, "3"));
+            add(new Recipe("Ukrainian red borscht", "tasty", R.drawable.borschtsh, 1, borshtsh, "1 hour", borshtch, "2"));
+            add(new Recipe("Mushroom soup", "cream", R.drawable.mushroom_soup, 1, mushroom, "1 hour", mushroom_soup, "3"));
         }
     };
 
@@ -52,9 +85,9 @@ public class RecipeList {
         return recipes;
     }
 
-    public void toggleFavoriteInList(Recipe recipe){
-        for (Recipe inListRecipe: recipes){
-            if (recipe.getRecipeName().equals(inListRecipe.getRecipeName())){
+    public void toggleFavoriteInList(Recipe recipe) {
+        for (Recipe inListRecipe : recipes) {
+            if (recipe.getRecipeName().equals(inListRecipe.getRecipeName())) {
                 inListRecipe.toggleFavorite();
             }
         }

@@ -11,6 +11,18 @@
         android:layout_height="wrap_content"
         android:background="@color/colorForBackground">
 
+
+        <ImageView
+            android:id="@+id/go_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:clickable="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back_black_18dp"/>
+
         <ImageView
             android:id="@+id/detailed_recipe_image"
             android:layout_width="match_parent"

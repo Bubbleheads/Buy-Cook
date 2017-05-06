@@ -12,5 +12,6 @@
     <color name="colorGrey">#cbcbcb</color>
     <color name="colorForText">#414141</color>
     <color name="colorForBackground">#fcfcfc</color>
+    <color name="colorBackground">#3ffcfcfc</color>
 
 </resources>

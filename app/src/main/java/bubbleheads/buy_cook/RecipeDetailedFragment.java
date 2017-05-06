@@ -65,7 +65,8 @@ public class RecipeDetailedFragment extends Fragment {
 
     @Override
     public void onStop() {
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+       ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+       ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         super.onStop();
     }
 

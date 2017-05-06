@@ -32,6 +32,14 @@ public class RecipeList {
             "Pour the soup into a blender, filling the pitcher no more than halfway full. Hold down the lid of the blender" +
             " with a folded kitchen towel, and carefully start the blender. Puree in batches until smooth. Return the soup to the pot," +
             " stir in the half and half, and reheat.";
+    private final String margarita_how_to_cook = "Place a pizza stone or tiles on the middle " +
+            "rack of your oven and turn heat to its highest setting. Let it heat for at least an hour.\n" +
+            "Put the sauce in the center of the stretched dough and use the back of a spoon to" +
+            " spread it evenly across the surface, stopping approximately 1/2 inch from the edges.\n" +
+            "Drizzle a little olive oil over the pie. Break the cheese into large pieces and " +
+            "place these gently on the sauce. Scatter basil leaves over the top.\n" +
+            "Using a pizza peel, pick up the pie and slide it onto the heated stone or tiles in " +
+            "the oven. Bake until the crust is golden brown and the cheese is bubbling, approximately 4 to 8 minutes.";
     private final String mushroom = "Cut the mushrooms into slices.\n" +
             "Melt butter in large frying pan. Add in onions, garlic, and mushrooms. Cook until onions are soft.\n" +
             "Blend in 2 T. flour and stir.\n" +
@@ -80,7 +88,18 @@ public class RecipeList {
             put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
         }
     };
-
+    private final HashMap<Ingredient, Integer> pizza_margarita = new HashMap<Ingredient, Integer>() {
+        {
+            put(new Ingredient("Bread flour", Measurement.GRAM), 300);
+            put(new Ingredient("Yeast", Measurement.TABLESPOON), 1);
+            put(new Ingredient("Salt", Measurement.TEASPOON), 1);
+            put(new Ingredient("Olive oil", Measurement.TABLESPOON), 1);
+            put(new Ingredient("Passata", Measurement.MILLITER), 100);
+            put(new Ingredient("Garlic", Measurement.AMOUNT), 1);
+            put(new Ingredient("Parmezan", Measurement.GRAM), 125);
+            put(new Ingredient("Cherry tomatoes", Measurement.AMOUNT), 6);
+        }
+    };
     private final HashMap<Ingredient, Integer> pizza = new HashMap<Ingredient, Integer>() {
         {
             put(new Ingredient("Dry yeast", Measurement.AMOUNT), 1);
@@ -95,6 +114,7 @@ public class RecipeList {
             add(new Recipe("Curry soup", "curry,salt", R.drawable.cream_soup, 1, cream_soup, "1.5hours", soup, "3"));
             add(new Recipe("Ukrainian red borscht", "tasty", R.drawable.borschtsh, 1, borshtsh, "1 hour", borshtch, "2"));
             add(new Recipe("Mushroom soup", "cream", R.drawable.mushroom_soup, 1, mushroom, "1 hour", mushroom_soup, "3"));
+            add(new Recipe("Pizza Margarita","pizza",R.drawable.margarita,2,margarita_how_to_cook,"20min",pizza_margarita,"3"));
             add(new Recipe("Pizza with pepperoni","pizza", R.drawable.pepperoni_pizza, 2, pizza_how_to_cook, "30min", pizza, "1"));
         }
     };

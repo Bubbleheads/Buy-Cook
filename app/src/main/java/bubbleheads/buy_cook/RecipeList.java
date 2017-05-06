@@ -23,6 +23,14 @@ public class RecipeList {
             " and water until well blended. Transfer to the pot. Add the raw garlic to the soup, cover and turn off the heat. " +
             "Let stand for 5 minutes. Taste, and season with salt, pepper and sugar.\n" +
             "Ladle into serving bowls, and garnish with sour cream, if desired, and fresh parsley.";
+    private final String caesar_how_to_cook = "Mince 3 cloves of garlic, and combine in a small bowl " +
+            "with mayonnaise, anchovies, 2 tablespoons of the Parmesan cheese, Worcestershire sauce, mustard," +
+            " and lemon juice. Season to taste with salt and black pepper. Refrigerate until ready to use.\n" +
+            "Heat oil in a large skillet over medium heat. Cut the remaining 3 cloves of garlic into quarters," +
+            " and add to hot oil. Cook and stir until brown, and then remove garlic from pan. Add bread cubes" +
+            " to the hot oil. Cook, turning frequently, until lightly browned. Remove bread cubes from oil, " +
+            "and season with salt and pepper.\n" +
+            "Place lettuce in a large bowl. Toss with dressing, remaining Parmesan cheese, and seasoned bread cubes. ";
     private final String roast_chicken_how_to_cook = "Preheat oven to 375 degrees F (190 degrees C). " +
             "Lightly grease a medium baking dish.\n" +
             "Pierce lemons several times with a fork, and place 1 inside each chicken cavity. Arrange" +
@@ -110,13 +118,25 @@ public class RecipeList {
     private final HashMap<Ingredient, Integer> soup = new HashMap<Ingredient, Integer>() {
         {
             put(new Ingredient("squash", Measurement.TABLESPOON), 1);
-            put(new Ingredient("squash", Measurement.TABLESPOON), 1);
             put(new Ingredient("unsalted butter", Measurement.TABLESPOON), 3);
             put(new Ingredient("onion", Measurement.AMOUNT), 1);
             put(new Ingredient("garlic", Measurement.AMOUNT), 2);
             put(new Ingredient("ginger", Measurement.TABLESPOON), 2);
-            put(new Ingredient("squash", Measurement.TABLESPOON), 1);
             put(new Ingredient("curry powder", Measurement.TEASPOON), 1);
+        }
+    };
+    private final HashMap<Ingredient, Integer> caesar_ingredients = new HashMap<Ingredient, Integer>() {
+        {
+            put(new Ingredient("Garlic", Measurement.AMOUNT), 6);
+            put(new Ingredient("Mayinnaise", Measurement.TABLESPOON), 6);
+            put(new Ingredient("Anchovy fillets", Measurement.AMOUNT), 5);
+            put(new Ingredient("Parmesan", Measurement.TABLESPOON), 6);
+            put(new Ingredient("Worcestershire sauce", Measurement.TEASPOON), 1);
+            put(new Ingredient("Lemon juice", Measurement.TABLESPOON), 1);
+            put(new Ingredient("Salt", Measurement.TEASPOON), 1);
+            put(new Ingredient("Olive oil", Measurement.TEASPOON), 7);
+            put(new Ingredient("Day-old bread", Measurement.GRAM), 50);
+
         }
     };
     private final HashMap<Ingredient, Integer> mushroom_soup = new HashMap<Ingredient, Integer>() {
@@ -175,6 +195,7 @@ public class RecipeList {
             add(new Recipe("Curry soup", "curry,salt", R.drawable.cream_soup, 1, cream_soup, "1.5hours", soup, "3"));
             add(new Recipe("Ukrainian red borscht", "tasty", R.drawable.borschtsh, 1, borshtsh, "1 hour", borshtch, "2"));
             add(new Recipe("Mushroom soup", "cream", R.drawable.mushroom_soup, 1, mushroom, "1 hour", mushroom_soup, "3"));
+            add(new Recipe("Caesar","salad",R.drawable.caesar,4,caesar_how_to_cook,"1hour",caesar_ingredients,"1"));
             add(new Recipe("Chicken", "chicken", R.drawable.chicken,3,roast_chicken_how_to_cook,"1.5h",chicken_ingredients,"5"));
             add(new Recipe("Beef steak", "steak", R.drawable.beef_recipe, 3, beef_steak_how_to_cook,"45min",beef_steak_ingredients,"4"));
             add(new Recipe("Pizza Margarita", "pizza", R.drawable.margarita, 2, margarita_how_to_cook, "20min", pizza_margarita, "3"));

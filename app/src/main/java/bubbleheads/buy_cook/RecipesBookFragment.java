@@ -1,6 +1,7 @@
 package bubbleheads.buy_cook;
 
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -33,7 +34,7 @@ public class RecipesBookFragment extends Fragment {
     }
 
     @Override
-    public void onStop() {
+    public void onStop(){
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         super.onStop();
     }

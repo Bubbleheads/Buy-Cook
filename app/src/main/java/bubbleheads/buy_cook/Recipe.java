@@ -1,5 +1,6 @@
 package bubbleheads.buy_cook;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Recipe {
@@ -11,10 +12,11 @@ public class Recipe {
     private final String timeOfCooking;
     private final String difficultyOfCooking;
     private boolean favorite;
-    private final Map ingredientMap;
+    private final HashMap<Ingredient, Integer> ingredientMap;
 
     public Recipe(final String name, final String detail, final int photo, final int categoryID,
-                  final String recipeHowToCook, final String timeOfCooking, final Map ingredientMap,
+                  final String recipeHowToCook, final String timeOfCooking,
+                  final HashMap<Ingredient, Integer> ingredientMap,
                   final String difficultyOfCooking) {
         this.recipeName = name;
         this.recipeDetail = detail;
@@ -42,13 +44,9 @@ public class Recipe {
         return recipeHowToCook;
     }
 
-    public String getTimeOfCooking() {
-        return timeOfCooking;
-    }
+    public String getTimeOfCooking() { return timeOfCooking; }
 
-    public String getDifficultyOfCooking() {
-        return difficultyOfCooking;
-    }
+    public String getDifficultyOfCooking() { return difficultyOfCooking; }
 
     public boolean getFavorite() {
         return favorite;
@@ -62,7 +60,5 @@ public class Recipe {
         this.favorite = !this.favorite;
     }
 
-    public Map getIngredientMap() {
-        return ingredientMap;
-    }
+    public HashMap<Ingredient, Integer> getIngredientMap() {return ingredientMap;}
 }

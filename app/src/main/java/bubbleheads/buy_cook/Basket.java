@@ -111,4 +111,9 @@ public class Basket {
         }
         return result;
     }
+
+    public void clearProducts(){
+        portionQuantity.clear();
+        productsToBuy.clear();
+    }
 }

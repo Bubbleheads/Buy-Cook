@@ -315,7 +315,7 @@ public class RecipeList {
             put(new Ingredient("Ice cubes", Measurement.AMOUNT), 6);
             put(new Ingredient("Sweetened condensed milk", Measurement.CUP), 1);
             put(new Ingredient("Milk", Measurement.CUP), 1);
-            put(new Ingredient("cChocolate syrup", Measurement.TABLESPOON), 1);
+            put(new Ingredient("Chocolate syrup", Measurement.TABLESPOON), 1);
         }
     };
     private final HashMap<Ingredient, Integer> cocoa_ingredients = new HashMap<Ingredient, Integer>() {

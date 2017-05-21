@@ -20,13 +20,10 @@ public class CategoryList {
             add(new Category("Pizza", 2)); //2
             add(new Category("Meat", 3)); //3
             add(new Category("Salads", 4)); //4
-            add(new Category("Main dishes", 5)); //5
             add(new Category("Drinks", 6)); //6
             add(new Category("Desserts", 7)); //7
             add(new Category("Cookies", 8)); //8
             add(new Category("Cakes", 9)); //9
-            add(new Category("Vegan", 10)); //10
-            add(new Category("Vegeterian", 11)); //11
         }
     };
 
